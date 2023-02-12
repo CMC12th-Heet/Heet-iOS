@@ -16,6 +16,7 @@
 		AE5413042996844B0002876A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5413022996844B0002876A /* LaunchScreen.storyboard */; };
 		AE54130C29969EFA0002876A /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54130B29969EFA0002876A /* ColorManager.swift */; };
 		AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */; };
+		AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		AE5413052996844B0002876A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE54130B29969EFA0002876A /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDetailViewController.swift; sourceTree = "<group>"; };
+		AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupIdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				AE5412FB299684490002876A /* LoginViewController.swift */,
 				AE19C12529975F8C00124F57 /* SignupViewController.swift */,
 				AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */,
+				AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5412FC299684490002876A /* LoginViewController.swift in Sources */,
+				AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */,
 				AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */,
 				AE5412F8299684490002876A /* AppDelegate.swift in Sources */,
 				AE19C12629975F8C00124F57 /* SignupViewController.swift in Sources */,

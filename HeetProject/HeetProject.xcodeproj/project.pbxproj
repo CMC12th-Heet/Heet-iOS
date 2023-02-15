@@ -13,6 +13,7 @@
 		AE5212DE299A3CEC0050547C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212DD299A3CEC0050547C /* LocationCell.swift */; };
 		AE5212E0299A7BE90050547C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212DF299A7BE90050547C /* GreetingViewController.swift */; };
 		AE5212E2299A9C4E0050547C /* FindingPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */; };
+		AE5212E4299AAEEC0050547C /* FindingPasswordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */; };
 		AE5412F8299684490002876A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5412F7299684490002876A /* AppDelegate.swift */; };
 		AE5412FA299684490002876A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5412F9299684490002876A /* SceneDelegate.swift */; };
 		AE5412FC299684490002876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5412FB299684490002876A /* LoginViewController.swift */; };
@@ -29,6 +30,7 @@
 		AE5212DD299A3CEC0050547C /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		AE5212DF299A7BE90050547C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPasswordViewController.swift; sourceTree = "<group>"; };
+		AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPasswordDetailViewController.swift; sourceTree = "<group>"; };
 		AE5412F4299684490002876A /* HeetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5412F7299684490002876A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE5412F9299684490002876A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				AE5412FB299684490002876A /* LoginViewController.swift */,
 				AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */,
+				AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */,
 				AE19C12529975F8C00124F57 /* SignupViewController.swift */,
 				AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */,
 				AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */,
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5212E4299AAEEC0050547C /* FindingPasswordDetailViewController.swift in Sources */,
 				AE5412FC299684490002876A /* LoginViewController.swift in Sources */,
 				AE5212E0299A7BE90050547C /* GreetingViewController.swift in Sources */,
 				AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */,

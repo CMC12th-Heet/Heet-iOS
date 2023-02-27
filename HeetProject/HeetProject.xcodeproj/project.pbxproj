@@ -10,7 +10,6 @@
 		AE19C122299757D000124F57 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE19C121299757D000124F57 /* SnapKit */; };
 		AE19C12629975F8C00124F57 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE19C12529975F8C00124F57 /* SignupViewController.swift */; };
 		AE5212DC299940600050547C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212DB299940600050547C /* LocationViewController.swift */; };
-		AE5212DE299A3CEC0050547C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212DD299A3CEC0050547C /* LocationCell.swift */; };
 		AE5212E0299A7BE90050547C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212DF299A7BE90050547C /* GreetingViewController.swift */; };
 		AE5212E2299A9C4E0050547C /* FindingPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */; };
 		AE5212E4299AAEEC0050547C /* FindingPasswordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */; };
@@ -22,12 +21,18 @@
 		AE54130C29969EFA0002876A /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54130B29969EFA0002876A /* ColorManager.swift */; };
 		AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */; };
 		AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */; };
+		AEBF78D529A7D02C00F97BC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */; };
+		AEBF78D729A7F02900F97BC0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF78D629A7F02900F97BC0 /* MainViewController.swift */; };
+		AEDD0B4729A7F61F00CB4A83 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */; };
+		AEDD0B4929A7F62A00CB4A83 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */; };
+		AEDD0B4C29A9C84200CB4A83 /* BSImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = AEDD0B4B29A9C84200CB4A83 /* BSImagePicker */; };
+		AEDD0B4E29A9CE7800CB4A83 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */; };
+		AEDD0B5329ACA76500CB4A83 /* LocalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE19C12529975F8C00124F57 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		AE5212DB299940600050547C /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		AE5212DD299A3CEC0050547C /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		AE5212DF299A7BE90050547C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPasswordViewController.swift; sourceTree = "<group>"; };
 		AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPasswordDetailViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +46,12 @@
 		AE54130B29969EFA0002876A /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDetailViewController.swift; sourceTree = "<group>"; };
 		AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupIdViewController.swift; sourceTree = "<group>"; };
+		AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		AEBF78D629A7F02900F97BC0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE19C122299757D000124F57 /* SnapKit in Frameworks */,
+				AEDD0B4C29A9C84200CB4A83 /* BSImagePicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +86,10 @@
 		AE5412F6299684490002876A /* HeetProject */ = {
 			isa = PBXGroup;
 			children = (
-				AE5412F7299684490002876A /* AppDelegate.swift */,
-				AE5412F9299684490002876A /* SceneDelegate.swift */,
+				AEDD0B5129A9E49400CB4A83 /* App */,
 				AEA2F32B2997785F006F84AB /* View */,
+				AEDD0B5029A9E47B00CB4A83 /* ViewModel */,
+				AEDD0B4F29A9E47100CB4A83 /* Model */,
 				AE54130B29969EFA0002876A /* ColorManager.swift */,
 				AE5413002996844B0002876A /* Assets.xcassets */,
 				AE5413022996844B0002876A /* LaunchScreen.storyboard */,
@@ -88,6 +101,7 @@
 		AEA2F32B2997785F006F84AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */,
 				AE5412FB299684490002876A /* LoginViewController.swift */,
 				AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */,
 				AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */,
@@ -96,9 +110,36 @@
 				AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */,
 				AE5212DF299A7BE90050547C /* GreetingViewController.swift */,
 				AE5212DB299940600050547C /* LocationViewController.swift */,
-				AE5212DD299A3CEC0050547C /* LocationCell.swift */,
+				AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */,
+				AEBF78D629A7F02900F97BC0 /* MainViewController.swift */,
+				AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */,
+				AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */,
+				AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AEDD0B4F29A9E47100CB4A83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AEDD0B5029A9E47B00CB4A83 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AEDD0B5129A9E49400CB4A83 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AE5412F7299684490002876A /* AppDelegate.swift */,
+				AE5412F9299684490002876A /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +160,7 @@
 			name = HeetProject;
 			packageProductDependencies = (
 				AE19C121299757D000124F57 /* SnapKit */,
+				AEDD0B4B29A9C84200CB4A83 /* BSImagePicker */,
 			);
 			productName = HeetProject;
 			productReference = AE5412F4299684490002876A /* HeetProject.app */;
@@ -150,6 +192,7 @@
 			mainGroup = AE5412EB299684490002876A;
 			packageReferences = (
 				AE19C120299757D000124F57 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				AEDD0B4A29A9C84200CB4A83 /* XCRemoteSwiftPackageReference "BSImagePicker" */,
 			);
 			productRefGroup = AE5412F5299684490002876A /* Products */;
 			projectDirPath = "";
@@ -178,14 +221,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5212E4299AAEEC0050547C /* FindingPasswordDetailViewController.swift in Sources */,
+				AEBF78D729A7F02900F97BC0 /* MainViewController.swift in Sources */,
+				AEDD0B4E29A9CE7800CB4A83 /* CustomTabBarController.swift in Sources */,
 				AE5412FC299684490002876A /* LoginViewController.swift in Sources */,
 				AE5212E0299A7BE90050547C /* GreetingViewController.swift in Sources */,
+				AEDD0B4729A7F61F00CB4A83 /* FollowingViewController.swift in Sources */,
 				AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */,
 				AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */,
+				AEDD0B5329ACA76500CB4A83 /* LocalCell.swift in Sources */,
 				AE5212E2299A9C4E0050547C /* FindingPasswordViewController.swift in Sources */,
+				AEBF78D529A7D02C00F97BC0 /* LocationCell.swift in Sources */,
 				AE5412F8299684490002876A /* AppDelegate.swift in Sources */,
+				AEDD0B4929A7F62A00CB4A83 /* MyPageViewController.swift in Sources */,
 				AE19C12629975F8C00124F57 /* SignupViewController.swift in Sources */,
-				AE5212DE299A3CEC0050547C /* LocationCell.swift in Sources */,
 				AE5212DC299940600050547C /* LocationViewController.swift in Sources */,
 				AE5412FA299684490002876A /* SceneDelegate.swift in Sources */,
 				AE54130C29969EFA0002876A /* ColorManager.swift in Sources */,
@@ -406,6 +454,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		AEDD0B4A29A9C84200CB4A83 /* XCRemoteSwiftPackageReference "BSImagePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mikaoj/BSImagePicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -413,6 +469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE19C120299757D000124F57 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		AEDD0B4B29A9C84200CB4A83 /* BSImagePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEDD0B4A29A9C84200CB4A83 /* XCRemoteSwiftPackageReference "BSImagePicker" */;
+			productName = BSImagePicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

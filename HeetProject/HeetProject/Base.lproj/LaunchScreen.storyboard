@@ -15,28 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="1eR-52-ZJp">
-                                <rect key="frame" x="113" y="240" width="300" height="280"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-SM-SH6">
+                                <rect key="frame" x="133" y="352" width="139" height="109"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="K8s-T4-i2Q"/>
-                                    <constraint firstAttribute="height" constant="280" id="P5Z-vo-eXc"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wLI-Af-kY4">
-                                <rect key="frame" x="146.66666666666666" y="718" width="100" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="EkW-Wy-yoA"/>
-                                    <constraint firstAttribute="height" constant="80" id="NlJ-lK-Eqg"/>
+                                    <constraint firstAttribute="width" constant="139" id="ObN-dU-eqX"/>
+                                    <constraint firstAttribute="height" constant="109" id="xya-Yg-h8Y"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="1" green="0.37765731292517007" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1eR-52-ZJp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="181" id="7hr-AL-mml"/>
-                            <constraint firstItem="wLI-Af-kY4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="C66-MU-1iC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wLI-Af-kY4" secondAttribute="bottom" constant="20" id="I2J-a7-qnP"/>
-                            <constraint firstItem="1eR-52-ZJp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="20" id="Te6-4W-eNg"/>
+                            <constraint firstItem="5wo-SM-SH6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="352" id="JOF-ZP-L4L"/>
+                            <constraint firstItem="5wo-SM-SH6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="133" id="TJf-FS-He8"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,7 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splashImage" width="277" height="279"/>
-        <image name="splashLogo" width="114" height="36"/>
+        <image name="splashImage" width="139" height="109"/>
     </resources>
 </document>

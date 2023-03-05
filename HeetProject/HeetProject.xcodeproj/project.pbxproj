@@ -28,6 +28,20 @@
 		AEDD0B4C29A9C84200CB4A83 /* BSImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = AEDD0B4B29A9C84200CB4A83 /* BSImagePicker */; };
 		AEDD0B4E29A9CE7800CB4A83 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */; };
 		AEDD0B5329ACA76500CB4A83 /* LocalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */; };
+		AEDD0B5729AE651600CB4A83 /* ReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B5629AE651600CB4A83 /* ReportingViewController.swift */; };
+		AEDD0B5929AF6F2A00CB4A83 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B5829AF6F2A00CB4A83 /* WritingViewController.swift */; };
+		AEDD0B5C29B2038600CB4A83 /* ExpyTableView in Frameworks */ = {isa = PBXBuildFile; productRef = AEDD0B5B29B2038600CB4A83 /* ExpyTableView */; };
+		AEDD0B6029B2380E00CB4A83 /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B5F29B2380E00CB4A83 /* ShareCell.swift */; };
+		AEDD0B6229B31E8F00CB4A83 /* CheckedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6129B31E8F00CB4A83 /* CheckedCell.swift */; };
+		AEDD0B6429B32DD000CB4A83 /* SearchingAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6329B32DD000CB4A83 /* SearchingAddressViewController.swift */; };
+		AEDD0B6629B33CF300CB4A83 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */; };
+		AEDD0B6829B35BC000CB4A83 /* FaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */; };
+		AEDD0B6A29B3AB3600CB4A83 /* ReportingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */; };
+		AEDD0B6C29B3DD1900CB4A83 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6B29B3DD1900CB4A83 /* TagCell.swift */; };
+		AEDD0B6E29B3E36D00CB4A83 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */; };
+		AEDD0B7029B3F5CF00CB4A83 /* CompletedReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */; };
+		AEDD0B7229B3FC5800CB4A83 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */; };
+		AEDD0B7429B4439400CB4A83 /* ChattingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +66,19 @@
 		AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCell.swift; sourceTree = "<group>"; };
+		AEDD0B5629AE651600CB4A83 /* ReportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingViewController.swift; sourceTree = "<group>"; };
+		AEDD0B5829AF6F2A00CB4A83 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		AEDD0B5F29B2380E00CB4A83 /* ShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCell.swift; sourceTree = "<group>"; };
+		AEDD0B6129B31E8F00CB4A83 /* CheckedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedCell.swift; sourceTree = "<group>"; };
+		AEDD0B6329B32DD000CB4A83 /* SearchingAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingAddressViewController.swift; sourceTree = "<group>"; };
+		AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
+		AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCell.swift; sourceTree = "<group>"; };
+		AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingCell.swift; sourceTree = "<group>"; };
+		AEDD0B6B29B3DD1900CB4A83 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedReportViewController.swift; sourceTree = "<group>"; };
+		AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDD0B5C29B2038600CB4A83 /* ExpyTableView in Frameworks */,
 				AE19C122299757D000124F57 /* SnapKit in Frameworks */,
 				AEDD0B4C29A9C84200CB4A83 /* BSImagePicker in Frameworks */,
 			);
@@ -112,9 +140,22 @@
 				AE5212DB299940600050547C /* LocationViewController.swift */,
 				AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */,
 				AEBF78D629A7F02900F97BC0 /* MainViewController.swift */,
+				AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */,
+				AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */,
+				AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */,
+				AEDD0B5629AE651600CB4A83 /* ReportingViewController.swift */,
+				AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */,
+				AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */,
 				AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */,
 				AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */,
 				AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */,
+				AEDD0B5829AF6F2A00CB4A83 /* WritingViewController.swift */,
+				AEDD0B6B29B3DD1900CB4A83 /* TagCell.swift */,
+				AEDD0B5F29B2380E00CB4A83 /* ShareCell.swift */,
+				AEDD0B6129B31E8F00CB4A83 /* CheckedCell.swift */,
+				AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */,
+				AEDD0B6329B32DD000CB4A83 /* SearchingAddressViewController.swift */,
+				AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +202,7 @@
 			packageProductDependencies = (
 				AE19C121299757D000124F57 /* SnapKit */,
 				AEDD0B4B29A9C84200CB4A83 /* BSImagePicker */,
+				AEDD0B5B29B2038600CB4A83 /* ExpyTableView */,
 			);
 			productName = HeetProject;
 			productReference = AE5412F4299684490002876A /* HeetProject.app */;
@@ -193,6 +235,7 @@
 			packageReferences = (
 				AE19C120299757D000124F57 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				AEDD0B4A29A9C84200CB4A83 /* XCRemoteSwiftPackageReference "BSImagePicker" */,
+				AEDD0B5A29B2038600CB4A83 /* XCRemoteSwiftPackageReference "ExpyTableView" */,
 			);
 			productRefGroup = AE5412F5299684490002876A /* Products */;
 			projectDirPath = "";
@@ -220,14 +263,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDD0B6429B32DD000CB4A83 /* SearchingAddressViewController.swift in Sources */,
 				AE5212E4299AAEEC0050547C /* FindingPasswordDetailViewController.swift in Sources */,
 				AEBF78D729A7F02900F97BC0 /* MainViewController.swift in Sources */,
 				AEDD0B4E29A9CE7800CB4A83 /* CustomTabBarController.swift in Sources */,
+				AEDD0B6A29B3AB3600CB4A83 /* ReportingCell.swift in Sources */,
+				AEDD0B6C29B3DD1900CB4A83 /* TagCell.swift in Sources */,
+				AEDD0B7229B3FC5800CB4A83 /* ChattingViewController.swift in Sources */,
+				AEDD0B5729AE651600CB4A83 /* ReportingViewController.swift in Sources */,
 				AE5412FC299684490002876A /* LoginViewController.swift in Sources */,
+				AEDD0B6629B33CF300CB4A83 /* AddressCell.swift in Sources */,
+				AEDD0B5929AF6F2A00CB4A83 /* WritingViewController.swift in Sources */,
+				AEDD0B7429B4439400CB4A83 /* ChattingCell.swift in Sources */,
 				AE5212E0299A7BE90050547C /* GreetingViewController.swift in Sources */,
 				AEDD0B4729A7F61F00CB4A83 /* FollowingViewController.swift in Sources */,
+				AEDD0B6829B35BC000CB4A83 /* FaceCell.swift in Sources */,
 				AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */,
+				AEDD0B6029B2380E00CB4A83 /* ShareCell.swift in Sources */,
 				AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */,
+				AEDD0B6229B31E8F00CB4A83 /* CheckedCell.swift in Sources */,
+				AEDD0B7029B3F5CF00CB4A83 /* CompletedReportViewController.swift in Sources */,
 				AEDD0B5329ACA76500CB4A83 /* LocalCell.swift in Sources */,
 				AE5212E2299A9C4E0050547C /* FindingPasswordViewController.swift in Sources */,
 				AEBF78D529A7D02C00F97BC0 /* LocationCell.swift in Sources */,
@@ -237,6 +292,7 @@
 				AE5212DC299940600050547C /* LocationViewController.swift in Sources */,
 				AE5412FA299684490002876A /* SceneDelegate.swift in Sources */,
 				AE54130C29969EFA0002876A /* ColorManager.swift in Sources */,
+				AEDD0B6E29B3E36D00CB4A83 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +518,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		AEDD0B5A29B2038600CB4A83 /* XCRemoteSwiftPackageReference "ExpyTableView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/okhanokbay/ExpyTableView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -474,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AEDD0B4A29A9C84200CB4A83 /* XCRemoteSwiftPackageReference "BSImagePicker" */;
 			productName = BSImagePicker;
+		};
+		AEDD0B5B29B2038600CB4A83 /* ExpyTableView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEDD0B5A29B2038600CB4A83 /* XCRemoteSwiftPackageReference "ExpyTableView" */;
+			productName = ExpyTableView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,7 +10,8 @@ import SnapKit
 import ExpyTableView
 
 class WritingViewController: UIViewController {
-  var imageNames: [String] = ["search", "search", "search"]
+  var imageNames: [UIImage] = []
+  var index: Int = 0
   let arraySection0: Array<String> = ["", "누구와 함께해요!", "이런 날 방문해요!", "이동 꿀팁", "주문 꿀팁", "기타 꿀팁"]
   let arraySection1: Array<String> = ["ex) 같이 간 사람/가고 싶은 사람","ex) 생일/기념일/기분 꿀꿀한 날","ex) 3번 출구 바로 앞 골목이 지름길!","ex) 시그니처 라떼는 필수입니다.", "ex) 화장실 문고리 잘 흔들려요!"]
   private let totalScrollview: UIScrollView = {
@@ -29,10 +30,11 @@ class WritingViewController: UIViewController {
     button.backgroundColor = .systemGray4
     button.titleLabel?.font = .systemFont(ofSize: 13, weight: .bold)
     button.tintColor = .white
-    button.addTarget(self, action: #selector(didTapAddress), for: .touchDown)
+    button.addTarget(self, action: #selector(didTapAddress), for: .touchUpInside)
     return button
   }()
   @objc func didTapAddress() {
+    print("tapapp")
     let vc = SearchingAddressViewController()
     vc.modalPresentationStyle = .fullScreen
     self.present(vc, animated: true)
@@ -45,6 +47,7 @@ class WritingViewController: UIViewController {
     button.layer.cornerRadius = 15
     button.backgroundColor = .gray
     button.tintColor = .white
+    button.layer.zPosition = 1000
     return button
   }()
   private let checkButton: UIButton = {
@@ -99,6 +102,7 @@ class WritingViewController: UIViewController {
     scrollview.isScrollEnabled = true
     scrollview.isPagingEnabled = true
     scrollview.bounces = false
+    scrollview.bounces = false
     return scrollview
   }()
   private let line1: UIImageView = {
@@ -131,7 +135,15 @@ class WritingViewController: UIViewController {
   }()
   private let tableview: ExpyTableView = {
     let tableview = ExpyTableView()
+    //    tableview.estimatedRowHeight = 50
+    //    tableview.rowHeight = UITableView.automaticDimension
     return tableview
+  }()
+  private let tagText: UITextField = {
+    let textField = UITextField()
+    textField.textColor = .gray
+    textField.placeholder = "# 태그하기"
+    return textField
   }()
   private let collectionview: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -143,21 +155,26 @@ class WritingViewController: UIViewController {
   }()
   override func viewDidLoad() {
     super.viewDidLoad()
+    view.backgroundColor = .white
     tableview.register(ShareCell.self, forCellReuseIdentifier: ShareCell.identifier)
     tableview.register(CheckedCell.self, forCellReuseIdentifier: CheckedCell.identifier)
     self.tabBarController?.tabBar.isHidden = true
     self.navigationController?.title = "우리동네 기록"
     tableview.delegate = self
     tableview.dataSource = self
-    collectionview.delegate = self
     collectionview.dataSource = self
-    collectionview.register(TagCell.self, forCellWithReuseIdentifier: TagCell.identifier)
+    collectionview.delegate = self
+    collectionview.register(TagLabelCell.self, forCellWithReuseIdentifier: TagLabelCell.identifier)
+    //    tableview.rowHeight = UITableView.automaticDimension
     setConstraint()
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
   }
   private func setConstraint() {
     self.view.addSubview(totalScrollview)
     totalScrollview.addSubview(totalview)
-    [addressButton, scrollview, stackview, tableview, collectionview]
+    [addressButton, scrollview, stackview, tableview]
       .forEach {
         totalview.addSubview($0)
       }
@@ -182,50 +199,49 @@ class WritingViewController: UIViewController {
       $0.top.equalTo(line4.snp.bottom).offset(5)
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.equalToSuperview().offset(-20)
-      $0.bottom.equalToSuperview()
       $0.height.equalTo(1000)
+      $0.bottom.equalToSuperview()
     }
     stackview.snp.makeConstraints {
       $0.leading.equalTo(totalview.snp.leading).offset(20)
       $0.trailing.equalTo(totalview.snp.trailing).offset(-20)
       $0.top.equalTo(scrollview.snp.bottom).offset(3)
+      $0.height.equalTo(200)
     }
     contentText.snp.makeConstraints {
       $0.height.equalTo(100)
     }
     addressButton.snp.makeConstraints {
-      $0.top.equalToSuperview()
+      $0.top.equalToSuperview().offset(20)
       $0.centerX.equalTo(totalview.snp.centerX)
       $0.width.equalTo(175)
       $0.height.equalTo(30)
     }
     scrollview.snp.makeConstraints {
       $0.top.equalTo(addressButton.snp.bottom).offset(20)
-      $0.leading.equalTo(totalview.snp.leading).offset(20)
-      $0.trailing.equalTo(totalview.snp.trailing).offset(-20)
+      $0.leading.equalTo(totalview.snp.leading)
+      $0.trailing.equalTo(totalview.snp.trailing)
       $0.height.equalTo(268)
     }
-    collectionview.snp.makeConstraints {
-      $0.top.equalTo(tableview.snp.bottom).offset(15)
-      $0.leading.equalTo(totalview.snp.leading).offset(20)
-      $0.trailing.equalTo(totalview.snp.trailing).offset(-20)
-      $0.bottom.equalTo(totalview.snp.bottom).offset(-20)
-    }
     for (index, imageName) in imageNames.enumerated() {
-      let image = UIImage(named: imageName)
-      let imageView = UIImageView(image: image)
-      let positionX = self.view.frame.width * CGFloat(index)
-      imageView.frame = CGRect(x: positionX, y: 0, width: scrollview.bounds.width + 40, height: scrollview.bounds.height)
-      imageView.image = UIImage(named: imageNames[index])
-      imageView.contentMode = .scaleAspectFit
-      imageView.layer.cornerRadius = 20
+      let imageView = UIImageView(image: imageName)
+      let button = UIButton(frame: CGRect(x: 0, y: 0, width: 47, height: 17))
+      button.setTitle("\(index+1)/\(imageNames.count)", for: .normal)
+      button.setTitleColor(.black, for: .normal)
+      button.backgroundColor = .white
+      button.layer.cornerRadius = 10
+      let positionX = Int(self.scrollview.bounds.width) * index + 20
+      imageView.frame = CGRect(x: positionX, y: 0, width: Int(view.bounds.width)-40, height: 268)
+      imageView.contentMode = .scaleAspectFill
+      imageView.clipsToBounds = true
+      imageView.layer.cornerRadius = 10
       scrollview.addSubview(imageView)
+      imageView.addSubview(button)
+      button.snp.makeConstraints {
+        $0.trailing.equalToSuperview().offset(-10)
+        $0.bottom.equalToSuperview().offset(-10)
+      }
     }
-  }
-}
-extension WritingViewController: UIScrollViewDelegate {
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    pagecontrol.currentPage = Int(floor(scrollview.contentOffset.x / UIScreen.main.bounds.width))
   }
 }
 extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
@@ -233,13 +249,10 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
     switch state {
     case .willExpand:
       print("WILL EXPAND")
-      
     case .willCollapse:
       print("WILL COLLAPSE")
-      
     case .didExpand:
       print("DID EXPAND")
-      
     case .didCollapse:
       print("DID COLLAPSE")
     }
@@ -259,8 +272,7 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
         $0.width.equalTo(146)
         $0.height.equalTo(28)
       }
-      //      cell.textLabel?.text = arraySection0[0]
-    } else {
+    } else if section == 1 {
       cell.contentView.addSubview(checkButton)
       checkButton.snp.makeConstraints {
         $0.centerY.equalToSuperview()
@@ -268,15 +280,22 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
         $0.width.equalTo(146)
         $0.height.equalTo(28)
       }
+    } else if section == 2 {
+      cell.contentView.addSubview(collectionview)
+      collectionview.snp.makeConstraints {
+        $0.edges.equalToSuperview()
+        $0.height.equalTo(50)
+      }
     }
     return cell
   }
-  //row 갯수
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
       return 6
-    } else {
+    } else if section == 1 {
       return 2
+    } else {
+      return 1
     }
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -286,14 +305,15 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
       cell1.setConstraints()
       cell1.cellButton.setTitle(arraySection0[indexPath.row], for: .normal)
       return cell1
-    } else {
+    } else if indexPath.section == 1 {
       cell2.setConstraints()
       return cell2
+    } else {
+      return cell1
     }
-    return cell1
   }
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return 3
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   }
@@ -307,18 +327,16 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
     }
   }
 }
-extension WritingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension WritingViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 10
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCell.identifier, for: indexPath) as? TagCell else { return UICollectionViewCell() }
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagLabelCell.identifier, for: indexPath) as? TagLabelCell else { return UICollectionViewCell() }
     cell.setConstraint()
     return cell
   }
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    let itemSpacing : CGFloat = 10
-//    let myWidth : CGFloat = (collectionView.bounds.width) / 5
-//    return CGSize(width: myWidth, height: collectionview.bounds.height)
-//  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 100, height: collectionView.bounds.height)
+  }
 }

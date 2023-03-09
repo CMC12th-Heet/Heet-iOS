@@ -37,11 +37,19 @@
 		AEDD0B6629B33CF300CB4A83 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */; };
 		AEDD0B6829B35BC000CB4A83 /* FaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */; };
 		AEDD0B6A29B3AB3600CB4A83 /* ReportingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */; };
-		AEDD0B6C29B3DD1900CB4A83 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6B29B3DD1900CB4A83 /* TagCell.swift */; };
 		AEDD0B6E29B3E36D00CB4A83 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */; };
 		AEDD0B7029B3F5CF00CB4A83 /* CompletedReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */; };
 		AEDD0B7229B3FC5800CB4A83 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */; };
 		AEDD0B7429B4439400CB4A83 /* ChattingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */; };
+		AEDD0B7629B4B2F500CB4A83 /* LocationGuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7529B4B2F500CB4A83 /* LocationGuCell.swift */; };
+		AEDD0B7829B5A8C200CB4A83 /* MainValidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7729B5A8C200CB4A83 /* MainValidateViewController.swift */; };
+		AEDD0B7A29B6FD1700CB4A83 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7929B6FD1700CB4A83 /* SettingViewController.swift */; };
+		AEDD0B7E29B706E200CB4A83 /* MypageLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7D29B706E200CB4A83 /* MypageLocationCell.swift */; };
+		AEDD0B8029B715D700CB4A83 /* FollowPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B7F29B715D700CB4A83 /* FollowPostCell.swift */; };
+		AEDD0B8229B71B4B00CB4A83 /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8129B71B4B00CB4A83 /* FollowingListViewController.swift */; };
+		AEDD0B8429B720CC00CB4A83 /* FollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8329B720CC00CB4A83 /* FollowCell.swift */; };
+		AEDD0B8629B780E700CB4A83 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8529B780E700CB4A83 /* EditProfileViewController.swift */; };
+		AEDD0B8A29B87A4E00CB4A83 /* TagLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8929B87A4E00CB4A83 /* TagLabelCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,11 +82,19 @@
 		AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCell.swift; sourceTree = "<group>"; };
 		AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingCell.swift; sourceTree = "<group>"; };
-		AEDD0B6B29B3DD1900CB4A83 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedReportViewController.swift; sourceTree = "<group>"; };
 		AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingCell.swift; sourceTree = "<group>"; };
+		AEDD0B7529B4B2F500CB4A83 /* LocationGuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGuCell.swift; sourceTree = "<group>"; };
+		AEDD0B7729B5A8C200CB4A83 /* MainValidateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainValidateViewController.swift; sourceTree = "<group>"; };
+		AEDD0B7929B6FD1700CB4A83 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		AEDD0B7D29B706E200CB4A83 /* MypageLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageLocationCell.swift; sourceTree = "<group>"; };
+		AEDD0B7F29B715D700CB4A83 /* FollowPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowPostCell.swift; sourceTree = "<group>"; };
+		AEDD0B8129B71B4B00CB4A83 /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
+		AEDD0B8329B720CC00CB4A83 /* FollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCell.swift; sourceTree = "<group>"; };
+		AEDD0B8529B780E700CB4A83 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		AEDD0B8929B87A4E00CB4A83 /* TagLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabelCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +134,6 @@
 				AEA2F32B2997785F006F84AB /* View */,
 				AEDD0B5029A9E47B00CB4A83 /* ViewModel */,
 				AEDD0B4F29A9E47100CB4A83 /* Model */,
-				AE54130B29969EFA0002876A /* ColorManager.swift */,
 				AE5413002996844B0002876A /* Assets.xcassets */,
 				AE5413022996844B0002876A /* LaunchScreen.storyboard */,
 				AE5413052996844B0002876A /* Info.plist */,
@@ -129,33 +144,17 @@
 		AEA2F32B2997785F006F84AB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */,
-				AE5412FB299684490002876A /* LoginViewController.swift */,
-				AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */,
-				AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */,
-				AE19C12529975F8C00124F57 /* SignupViewController.swift */,
-				AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */,
-				AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */,
-				AE5212DF299A7BE90050547C /* GreetingViewController.swift */,
-				AE5212DB299940600050547C /* LocationViewController.swift */,
-				AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */,
-				AEBF78D629A7F02900F97BC0 /* MainViewController.swift */,
-				AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */,
-				AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */,
-				AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */,
-				AEDD0B5629AE651600CB4A83 /* ReportingViewController.swift */,
-				AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */,
-				AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */,
-				AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */,
-				AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */,
-				AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */,
-				AEDD0B5829AF6F2A00CB4A83 /* WritingViewController.swift */,
-				AEDD0B6B29B3DD1900CB4A83 /* TagCell.swift */,
-				AEDD0B5F29B2380E00CB4A83 /* ShareCell.swift */,
-				AEDD0B6129B31E8F00CB4A83 /* CheckedCell.swift */,
-				AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */,
-				AEDD0B6329B32DD000CB4A83 /* SearchingAddressViewController.swift */,
-				AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */,
+				AEDD0B9429B897F400CB4A83 /* Reporting */,
+				AEDD0B9329B897D100CB4A83 /* MainPost */,
+				AEDD0B9229B897B500CB4A83 /* SettingLocation */,
+				AEDD0B8E29B8975C00CB4A83 /* Password */,
+				AEDD0B8D29B8974200CB4A83 /* Chatting */,
+				AEDD0B8C29B8971E00CB4A83 /* Signup */,
+				AEDD0B9529B8981300CB4A83 /* SearchAddress */,
+				AEDD0B8B29B8970700CB4A83 /* Login */,
+				AEDD0B9129B8979B00CB4A83 /* Writing */,
+				AEDD0B8F29B8977300CB4A83 /* Following */,
+				AEDD0B9029B8978500CB4A83 /* Mypage */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,8 +178,121 @@
 			children = (
 				AE5412F7299684490002876A /* AppDelegate.swift */,
 				AE5412F9299684490002876A /* SceneDelegate.swift */,
+				AE54130B29969EFA0002876A /* ColorManager.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		AEDD0B8B29B8970700CB4A83 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AE5412FB299684490002876A /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AEDD0B8C29B8971E00CB4A83 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				AE19C12529975F8C00124F57 /* SignupViewController.swift */,
+				AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */,
+				AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */,
+				AE5212DF299A7BE90050547C /* GreetingViewController.swift */,
+				AEDD0B4D29A9CE7800CB4A83 /* CustomTabBarController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		AEDD0B8D29B8974200CB4A83 /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B7129B3FC5800CB4A83 /* ChattingViewController.swift */,
+				AEDD0B7329B4439400CB4A83 /* ChattingCell.swift */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
+		AEDD0B8E29B8975C00CB4A83 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				AE5212E1299A9C4E0050547C /* FindingPasswordViewController.swift */,
+				AE5212E3299AAEEB0050547C /* FindingPasswordDetailViewController.swift */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		AEDD0B8F29B8977300CB4A83 /* Following */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */,
+				AEDD0B7F29B715D700CB4A83 /* FollowPostCell.swift */,
+				AEDD0B8129B71B4B00CB4A83 /* FollowingListViewController.swift */,
+				AEDD0B8329B720CC00CB4A83 /* FollowCell.swift */,
+			);
+			path = Following;
+			sourceTree = "<group>";
+		};
+		AEDD0B9029B8978500CB4A83 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B4829A7F62A00CB4A83 /* MyPageViewController.swift */,
+				AEDD0B7D29B706E200CB4A83 /* MypageLocationCell.swift */,
+				AEDD0B7929B6FD1700CB4A83 /* SettingViewController.swift */,
+				AEDD0B8529B780E700CB4A83 /* EditProfileViewController.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		AEDD0B9129B8979B00CB4A83 /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B5829AF6F2A00CB4A83 /* WritingViewController.swift */,
+				AEDD0B8929B87A4E00CB4A83 /* TagLabelCell.swift */,
+				AEDD0B5F29B2380E00CB4A83 /* ShareCell.swift */,
+				AEDD0B6129B31E8F00CB4A83 /* CheckedCell.swift */,
+				AEDD0B6729B35BC000CB4A83 /* FaceCell.swift */,
+			);
+			path = Writing;
+			sourceTree = "<group>";
+		};
+		AEDD0B9229B897B500CB4A83 /* SettingLocation */ = {
+			isa = PBXGroup;
+			children = (
+				AE5212DB299940600050547C /* LocationViewController.swift */,
+				AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */,
+				AEDD0B7529B4B2F500CB4A83 /* LocationGuCell.swift */,
+			);
+			path = SettingLocation;
+			sourceTree = "<group>";
+		};
+		AEDD0B9329B897D100CB4A83 /* MainPost */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B7729B5A8C200CB4A83 /* MainValidateViewController.swift */,
+				AEDD0B5229ACA76500CB4A83 /* LocalCell.swift */,
+				AEBF78D629A7F02900F97BC0 /* MainViewController.swift */,
+				AEDD0B6D29B3E36D00CB4A83 /* DetailViewController.swift */,
+			);
+			path = MainPost;
+			sourceTree = "<group>";
+		};
+		AEDD0B9429B897F400CB4A83 /* Reporting */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B5629AE651600CB4A83 /* ReportingViewController.swift */,
+				AEDD0B6F29B3F5CF00CB4A83 /* CompletedReportViewController.swift */,
+				AEDD0B6929B3AB3600CB4A83 /* ReportingCell.swift */,
+			);
+			path = Reporting;
+			sourceTree = "<group>";
+		};
+		AEDD0B9529B8981300CB4A83 /* SearchAddress */ = {
+			isa = PBXGroup;
+			children = (
+				AEDD0B6329B32DD000CB4A83 /* SearchingAddressViewController.swift */,
+				AEDD0B6529B33CF300CB4A83 /* AddressCell.swift */,
+			);
+			path = SearchAddress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,26 +376,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEDD0B6429B32DD000CB4A83 /* SearchingAddressViewController.swift in Sources */,
+				AEDD0B8029B715D700CB4A83 /* FollowPostCell.swift in Sources */,
 				AE5212E4299AAEEC0050547C /* FindingPasswordDetailViewController.swift in Sources */,
 				AEBF78D729A7F02900F97BC0 /* MainViewController.swift in Sources */,
 				AEDD0B4E29A9CE7800CB4A83 /* CustomTabBarController.swift in Sources */,
+				AEDD0B7629B4B2F500CB4A83 /* LocationGuCell.swift in Sources */,
+				AEDD0B8429B720CC00CB4A83 /* FollowCell.swift in Sources */,
 				AEDD0B6A29B3AB3600CB4A83 /* ReportingCell.swift in Sources */,
-				AEDD0B6C29B3DD1900CB4A83 /* TagCell.swift in Sources */,
 				AEDD0B7229B3FC5800CB4A83 /* ChattingViewController.swift in Sources */,
 				AEDD0B5729AE651600CB4A83 /* ReportingViewController.swift in Sources */,
 				AE5412FC299684490002876A /* LoginViewController.swift in Sources */,
+				AEDD0B8A29B87A4E00CB4A83 /* TagLabelCell.swift in Sources */,
 				AEDD0B6629B33CF300CB4A83 /* AddressCell.swift in Sources */,
 				AEDD0B5929AF6F2A00CB4A83 /* WritingViewController.swift in Sources */,
 				AEDD0B7429B4439400CB4A83 /* ChattingCell.swift in Sources */,
+				AEDD0B7E29B706E200CB4A83 /* MypageLocationCell.swift in Sources */,
 				AE5212E0299A7BE90050547C /* GreetingViewController.swift in Sources */,
 				AEDD0B4729A7F61F00CB4A83 /* FollowingViewController.swift in Sources */,
 				AEDD0B6829B35BC000CB4A83 /* FaceCell.swift in Sources */,
 				AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */,
 				AEDD0B6029B2380E00CB4A83 /* ShareCell.swift in Sources */,
+				AEDD0B8229B71B4B00CB4A83 /* FollowingListViewController.swift in Sources */,
+				AEDD0B7829B5A8C200CB4A83 /* MainValidateViewController.swift in Sources */,
 				AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */,
 				AEDD0B6229B31E8F00CB4A83 /* CheckedCell.swift in Sources */,
 				AEDD0B7029B3F5CF00CB4A83 /* CompletedReportViewController.swift in Sources */,
+				AEDD0B8629B780E700CB4A83 /* EditProfileViewController.swift in Sources */,
 				AEDD0B5329ACA76500CB4A83 /* LocalCell.swift in Sources */,
+				AEDD0B7A29B6FD1700CB4A83 /* SettingViewController.swift in Sources */,
 				AE5212E2299A9C4E0050547C /* FindingPasswordViewController.swift in Sources */,
 				AEBF78D529A7D02C00F97BC0 /* LocationCell.swift in Sources */,
 				AE5412F8299684490002876A /* AppDelegate.swift in Sources */,

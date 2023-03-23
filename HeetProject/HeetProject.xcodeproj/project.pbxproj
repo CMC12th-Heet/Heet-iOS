@@ -69,6 +69,7 @@
 		AEDD0BBD29C1E0F900CB4A83 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0BBC29C1E0F900CB4A83 /* CityModel.swift */; };
 		AEDD0BBF29C202B100CB4A83 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0BBE29C202B100CB4A83 /* Extension+UITextField.swift */; };
 		AEDD0BC129C730F600CB4A83 /* ChattingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0BC029C730F600CB4A83 /* ChattingModel.swift */; };
+		AEDD0BC329CC745300CB4A83 /* FollowingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0BC229CC745300CB4A83 /* FollowingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,7 @@
 		AEDD0BBC29C1E0F900CB4A83 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		AEDD0BBE29C202B100CB4A83 /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		AEDD0BC029C730F600CB4A83 /* ChattingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingModel.swift; sourceTree = "<group>"; };
+		AEDD0BC229CC745300CB4A83 /* FollowingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				AEDD0BBA29BF7C2A00CB4A83 /* LocationModel.swift */,
 				AEDD0BBC29C1E0F900CB4A83 /* CityModel.swift */,
 				AEDD0BC029C730F600CB4A83 /* ChattingModel.swift */,
+				AEDD0BC229CC745300CB4A83 /* FollowingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				AEDD0BB429BF38F000CB4A83 /* StoreIdModel.swift in Sources */,
 				AEDD0B4E29A9CE7800CB4A83 /* CustomTabBarController.swift in Sources */,
 				AEDD0BA129B9D62500CB4A83 /* SignupModel.swift in Sources */,
+				AEDD0BC329CC745300CB4A83 /* FollowingModel.swift in Sources */,
 				AEDD0B7629B4B2F500CB4A83 /* LocationGuCell.swift in Sources */,
 				AEDD0B8429B720CC00CB4A83 /* FollowCell.swift in Sources */,
 				AEDD0BBD29C1E0F900CB4A83 /* CityModel.swift in Sources */,

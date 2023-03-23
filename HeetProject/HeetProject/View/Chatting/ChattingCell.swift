@@ -13,16 +13,17 @@ class ChattingCell: UITableViewCell {
     let imageview = UIImageView(image: UIImage(named: "profile"))
     return imageview
   }()
-  private let username: UILabel = {
+  let username: UILabel = {
     let label = UILabel()
     label.text = "viewer"
     label.font = .systemFont(ofSize: 10)
     label.textColor = .gray
     return label
   }()
-  private let message: UILabel = {
+  let message: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
+    label.text = "우리 동네에 이런 곳이..."
     label.textColor = .gray
     label.font = .systemFont(ofSize: 13)
     return label
@@ -30,7 +31,6 @@ class ChattingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

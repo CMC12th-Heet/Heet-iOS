@@ -17,14 +17,14 @@ class AddressCell: UITableViewCell {
     let label = UILabel()
     label.font = .systemFont(ofSize: 16, weight: .bold)
     label.textColor = .gray
-    label.text = "where am I"
+    label.text = "n/a"
     return label
   }()
-  private let label2: UILabel = {
+  let label2: UILabel = {
     let label = UILabel()
     label.font = .systemFont(ofSize: 12)
     label.textColor = .systemGray4
-    label.text = "whererere"
+    label.text = "n/a"
     return label
   }()
   override func awakeFromNib() {

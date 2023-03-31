@@ -57,9 +57,7 @@
 		AEDD0B8429B720CC00CB4A83 /* FollowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8329B720CC00CB4A83 /* FollowCell.swift */; };
 		AEDD0B8629B780E700CB4A83 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8529B780E700CB4A83 /* EditProfileViewController.swift */; };
 		AEDD0B8A29B87A4E00CB4A83 /* TagLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B8929B87A4E00CB4A83 /* TagLabelCell.swift */; };
-		AEDD0B9729B9C37600CB4A83 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B9629B9C37600CB4A83 /* Observable.swift */; };
 		AEDD0B9B29B9CEAF00CB4A83 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AEDD0B9A29B9CEAF00CB4A83 /* Alamofire */; };
-		AEDD0B9D29B9D21400CB4A83 /* SignupViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B9C29B9D21400CB4A83 /* SignupViewmodel.swift */; };
 		AEDD0B9F29B9D24800CB4A83 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B9E29B9D24800CB4A83 /* NetworkService.swift */; };
 		AEDD0BA129B9D62500CB4A83 /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0BA029B9D62500CB4A83 /* SignupModel.swift */; };
 		AEDD0BA329BA38EC00CB4A83 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0BA229BA38EC00CB4A83 /* LoginModel.swift */; };
@@ -130,8 +128,6 @@
 		AEDD0B8329B720CC00CB4A83 /* FollowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCell.swift; sourceTree = "<group>"; };
 		AEDD0B8529B780E700CB4A83 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		AEDD0B8929B87A4E00CB4A83 /* TagLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabelCell.swift; sourceTree = "<group>"; };
-		AEDD0B9629B9C37600CB4A83 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		AEDD0B9C29B9D21400CB4A83 /* SignupViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewmodel.swift; sourceTree = "<group>"; };
 		AEDD0B9E29B9D24800CB4A83 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AEDD0BA029B9D62500CB4A83 /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		AEDD0BA229BA38EC00CB4A83 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -206,7 +202,6 @@
 			children = (
 				AEDD0B5129A9E49400CB4A83 /* App */,
 				AEA2F32B2997785F006F84AB /* View */,
-				AEDD0B5029A9E47B00CB4A83 /* ViewModel */,
 				AEDD0B4F29A9E47100CB4A83 /* Model */,
 				AEDD0B9829B9C38000CB4A83 /* Network */,
 				AEDD0BB929BF7A3400CB4A83 /* Extension */,
@@ -242,24 +237,16 @@
 			children = (
 				AEDD0BA029B9D62500CB4A83 /* SignupModel.swift */,
 				AEDD0BA229BA38EC00CB4A83 /* LoginModel.swift */,
-				AEDD0BAB29BC9E8500CB4A83 /* MypageModel.swift */,
 				AEDD0BB129BF0AF900CB4A83 /* StoreModel.swift */,
 				AEDD0BB329BF38F000CB4A83 /* StoreIdModel.swift */,
 				AEDD0BB529BF427C00CB4A83 /* LocalPost.swift */,
+				AEDD0BAB29BC9E8500CB4A83 /* MypageModel.swift */,
 				AEDD0BBA29BF7C2A00CB4A83 /* LocationModel.swift */,
 				AEDD0BBC29C1E0F900CB4A83 /* CityModel.swift */,
 				AEDD0BC029C730F600CB4A83 /* ChattingModel.swift */,
 				AEDD0BC229CC745300CB4A83 /* FollowingModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		AEDD0B5029A9E47B00CB4A83 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AEDD0B9C29B9D21400CB4A83 /* SignupViewmodel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AEDD0B5129A9E49400CB4A83 /* App */ = {
@@ -390,7 +377,6 @@
 		AEDD0B9829B9C38000CB4A83 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				AEDD0B9629B9C37600CB4A83 /* Observable.swift */,
 				AEDD0B9E29B9D24800CB4A83 /* NetworkService.swift */,
 				AEDD0BA429BA47BA00CB4A83 /* Resource.swift */,
 				AEDD0BA629BA483900CB4A83 /* NetworkResult.swift */,
@@ -517,7 +503,6 @@
 				AE5412FC299684490002876A /* LoginViewController.swift in Sources */,
 				AEDD0B8A29B87A4E00CB4A83 /* TagLabelCell.swift in Sources */,
 				AEDD0B6629B33CF300CB4A83 /* AddressCell.swift in Sources */,
-				AEDD0B9729B9C37600CB4A83 /* Observable.swift in Sources */,
 				AEDD0B5929AF6F2A00CB4A83 /* WritingViewController.swift in Sources */,
 				AEDD0B7429B4439400CB4A83 /* ChattingCell.swift in Sources */,
 				AEDD0B7E29B706E200CB4A83 /* MypageLocationCell.swift in Sources */,
@@ -537,7 +522,6 @@
 				AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */,
 				AEDD0B9F29B9D24800CB4A83 /* NetworkService.swift in Sources */,
 				AEDD0B6229B31E8F00CB4A83 /* CheckedCell.swift in Sources */,
-				AEDD0B9D29B9D21400CB4A83 /* SignupViewmodel.swift in Sources */,
 				AEDD0BBB29BF7C2A00CB4A83 /* LocationModel.swift in Sources */,
 				AEDD0B7029B3F5CF00CB4A83 /* CompletedReportViewController.swift in Sources */,
 				AEDD0B8629B780E700CB4A83 /* EditProfileViewController.swift in Sources */,

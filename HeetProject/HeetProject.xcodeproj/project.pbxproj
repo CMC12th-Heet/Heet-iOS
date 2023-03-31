@@ -28,6 +28,8 @@
 		AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */; };
 		AEA2F32D29981FD7006F84AB /* SignupIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */; };
 		AEBC8EA529D6DDEA0084FBC2 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC8EA429D6DDEA0084FBC2 /* ImageCacheManager.swift */; };
+		AEBC8EA729D6E4610084FBC2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC8EA629D6E4610084FBC2 /* User.swift */; };
+		AEBC8EA929D6E4700084FBC2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBC8EA829D6E4700084FBC2 /* Store.swift */; };
 		AEBF78D529A7D02C00F97BC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */; };
 		AEBF78D729A7F02900F97BC0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF78D629A7F02900F97BC0 /* MainViewController.swift */; };
 		AEDD0B4729A7F61F00CB4A83 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */; };
@@ -101,6 +103,8 @@
 		AEA2F3292997708D006F84AB /* SignupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDetailViewController.swift; sourceTree = "<group>"; };
 		AEA2F32C29981FD7006F84AB /* SignupIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupIdViewController.swift; sourceTree = "<group>"; };
 		AEBC8EA429D6DDEA0084FBC2 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		AEBC8EA629D6E4610084FBC2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AEBC8EA829D6E4700084FBC2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		AEBF78D429A7D02C00F97BC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		AEBF78D629A7F02900F97BC0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AEDD0B4629A7F61F00CB4A83 /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				AEDD0BB129BF0AF900CB4A83 /* StoreModel.swift */,
 				AEDD0BB329BF38F000CB4A83 /* StoreIdModel.swift */,
 				AEDD0BB529BF427C00CB4A83 /* LocalPost.swift */,
+				AEBC8EA629D6E4610084FBC2 /* User.swift */,
+				AEBC8EA829D6E4700084FBC2 /* Store.swift */,
 				AEDD0BAB29BC9E8500CB4A83 /* MypageModel.swift */,
 				AEDD0BBA29BF7C2A00CB4A83 /* LocationModel.swift */,
 				AEDD0BBC29C1E0F900CB4A83 /* CityModel.swift */,
@@ -520,6 +526,7 @@
 				AEDD0BA529BA47BA00CB4A83 /* Resource.swift in Sources */,
 				AEDD0BC529CC8EC500CB4A83 /* MainLocationViewController.swift in Sources */,
 				AEA2F32A2997708D006F84AB /* SignupDetailViewController.swift in Sources */,
+				AEBC8EA729D6E4610084FBC2 /* User.swift in Sources */,
 				AEDD0B9F29B9D24800CB4A83 /* NetworkService.swift in Sources */,
 				AEDD0B6229B31E8F00CB4A83 /* CheckedCell.swift in Sources */,
 				AEDD0BBB29BF7C2A00CB4A83 /* LocationModel.swift in Sources */,
@@ -529,6 +536,7 @@
 				AEDD0BC129C730F600CB4A83 /* ChattingModel.swift in Sources */,
 				AEDD0B7A29B6FD1700CB4A83 /* SettingViewController.swift in Sources */,
 				AE5212E2299A9C4E0050547C /* FindingPasswordViewController.swift in Sources */,
+				AEBC8EA929D6E4700084FBC2 /* Store.swift in Sources */,
 				AEBF78D529A7D02C00F97BC0 /* LocationCell.swift in Sources */,
 				AE5412F8299684490002876A /* AppDelegate.swift in Sources */,
 				AEDD0B4929A7F62A00CB4A83 /* MyPageViewController.swift in Sources */,

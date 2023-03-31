@@ -29,19 +29,3 @@ struct LocalPost: Decodable {
   var isMyPost: Int?
   var urlList: [String]?
 }
-struct User: Decodable {
-  var user_id: Int
-  var email: String
-  var username: String
-  var password: String
-  var is_verify: Bool
-  var town: String?
-  var status: String?
-}
-struct Store: Decodable {
-  var store_id: Int
-  var name: String
-  var url: String
-  var address: String
-}
-

@@ -7,8 +7,10 @@
 
 import UIKit
 
+var selectedFace = 0
 class CheckedCell: UITableViewCell {
   static let identifier = "CheckedCell"
+  var cellSatisfy: Int?
   var faceImages = ["face1", "face2", "face3", "face4", "face5"]
   var faceLabels = ["화나요.", "별로에요.", "그럭저럭?", "좋았어요!", "재방문100%"]
   private let collectionview: UICollectionView = {
@@ -47,6 +49,9 @@ extension CheckedCell: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     guard let cell = collectionview.dequeueReusableCell(withReuseIdentifier: FaceCell.identifier, for: indexPath) as? FaceCell else { return UICollectionViewCell() }
     cell.imagename = faceImages[indexPath.row]
     cell.labeltext = faceLabels[indexPath.row]
+    if self.cellSatisfy == indexPath.row {
+      cell.label.textColor = ColorManager.BackgroundColor
+    }
     cell.setConstraint()
     return cell
   }
@@ -57,12 +62,6 @@ extension CheckedCell: UICollectionViewDataSource, UICollectionViewDelegate, UIC
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("click \(indexPath)")
-    let cell = collectionView.cellForItem(at: indexPath) as? FaceCell
-//    if indexPath.item == 1 {
-//      cell?.isSelected = true
-//      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-//    } else {
-//      cell?.isSelected = false
-//    }
+    selectedFace = indexPath.row
   }
 }

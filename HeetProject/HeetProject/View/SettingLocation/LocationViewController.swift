@@ -87,11 +87,14 @@ class LocationViewController: UIViewController {
     ]
     if LocationViewController.temp.count > 0 {
       NetworkService().registerUser(url: "/user", method: .post, params: body, headers: ["Content-Type" : "application/json"]) {
+        signTown = "\(LocationViewController.city) \(LocationViewController.temp[1])"
         GreetingViewController.selectedLoc = LocationViewController.temp
         GreetingViewController.LocationImage.isHidden = false
         GreetingViewController.LocationLabel.text = LocationViewController.temp[1]
         GreetingViewController.LocationLabel.isHidden = false
         GreetingViewController.setLocation.setTitle("시작하기", for: .normal)
+        MainLocationViewController.selectedCity = LocationViewController.city
+        MainLocationViewController.selectedGu = LocationViewController.temp[1]
         self.navigationController?.popViewController(animated: true)
       }
     }
@@ -193,11 +196,11 @@ extension LocationViewController: ExpyTableViewDelegate, ExpyTableViewDataSource
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.section == 0 {
-      LocationViewController.city = "서울"
+      MainLocationViewController.city = "서울"
     } else if indexPath.section == 1 {
-      LocationViewController.city = "경기"
+      MainLocationViewController.city = "경기"
     } else {
-      LocationViewController.city = "인천"
+      MainLocationViewController.city = "인천"
     }
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

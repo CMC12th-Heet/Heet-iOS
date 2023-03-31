@@ -9,21 +9,21 @@ import UIKit
 
 class MypageLocationCell: UICollectionViewCell {
   static let identifier = "MypageLocationCell"
+  var post: LocalPost?
   private let imageview: UIImageView = {
-    let imageview = UIImageView(image: UIImage(named: "Location"))
+    let imageview = UIImageView(image: UIImage(named: "wlocation"))
     return imageview
   }()
-  private let label: UILabel = {
+  var label: UILabel = {
     let label = UILabel()
-    label.text = "중구 약수동"
+    label.text = ""
+    label.font = .systemFont(ofSize: 12, weight: .bold)
     label.textColor = .white
     return label
   }()
-  private let placeImage: UIImageView = {
-    let imageview = UIImageView(image: UIImage(named: "profile"))
+  let placeImage: UIImageView = {
+    let imageview = UIImageView(image: UIImage(named: "loading"))
     imageview.contentMode = .scaleAspectFill
-    imageview.clipsToBounds = true
-    imageview.layer.cornerRadius = 10
     return imageview
   }()
   override func awakeFromNib() {
@@ -34,13 +34,14 @@ class MypageLocationCell: UICollectionViewCell {
     placeImage.addSubview(imageview)
     placeImage.addSubview(label)
     placeImage.snp.makeConstraints {
-      $0.edges.equalToSuperview()
-      $0.width.equalTo(165)
-      $0.height.equalTo(188)
+      $0.leading.equalToSuperview()
+      $0.top.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.trailing.equalToSuperview()
     }
     imageview.snp.makeConstraints {
-      $0.width.equalTo(20)
-      $0.height.equalTo(25)
+      $0.width.equalTo(15)
+      $0.height.equalTo(20)
       $0.leading.equalToSuperview().offset(10)
       $0.top.equalToSuperview().offset(10)
     }
@@ -49,5 +50,4 @@ class MypageLocationCell: UICollectionViewCell {
       $0.top.equalToSuperview().offset(10)
     }
   }
-  
 }

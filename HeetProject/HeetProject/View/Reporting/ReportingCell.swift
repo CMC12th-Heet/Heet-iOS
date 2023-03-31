@@ -24,6 +24,11 @@ class ReportingCell: UITableViewCell {
     label.font = .systemFont(ofSize: 16)
     return label
   }()
+  private let image: UIImageView = {
+    let imageview = UIImageView()
+    imageview.image = UIImage(named: "giho")
+    return imageview
+  }()
   override func awakeFromNib() {
     super.awakeFromNib()
   }
@@ -42,12 +47,16 @@ class ReportingCell: UITableViewCell {
     label.textColor = .gray
   }
   func setConstraint() {
-    [label]
+    [label, image]
       .forEach {
         contentView.addSubview($0)
       }
     label.snp.makeConstraints {
       $0.leading.equalToSuperview()
+      $0.centerY.equalToSuperview()
+    }
+    image.snp.makeConstraints {
+      $0.trailing.equalToSuperview().offset(-10)
       $0.centerY.equalToSuperview()
     }
   }

@@ -22,12 +22,15 @@ class ReportingViewController: UIViewController {
   }()
   private let tableview: UITableView = {
     let tableview = UITableView()
+    tableview.separatorStyle = .none
     return tableview
   }()
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .done, target: self, action: #selector(didComplete))
+    self.navigationController?.navigationBar.topItem?.title = "신고하기"
+    self.navigationController?.navigationBar.topItem?.backBarButtonItem?.title = ""
     self.tabBarController?.tabBar.isHidden = true
     setConstraint()
     tableview.delegate = self
@@ -36,7 +39,7 @@ class ReportingViewController: UIViewController {
   }
   @objc private func didComplete() {
     let vc = CompletedReportViewController()
-    self.navigationController?.pushViewController(vc, animated: true)
+    self.navigationController?.pushViewController(vc, animated: false)
   }
   private func setConstraint() {
     [titleLabel, lineView, tableview]

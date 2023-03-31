@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Alamofire
 
 class FollowingViewController: UIViewController {
+  var postModel: Post?
   private let followerButton: UIButton = {
     let button = UIButton()
     button.setTitle("팔로잉 목록", for: .normal)
@@ -20,11 +22,30 @@ class FollowingViewController: UIViewController {
     return button
   }()
   private let tableView: UITableView = {
-    let tableView = UITableView(frame: CGRect.zero, style: .grouped)
+    let tableView = UITableView()
     tableView.register(FollowPostCell.self, forCellReuseIdentifier: FollowPostCell.identifier)
-    tableView.isScrollEnabled = false
     return tableView
   }()
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.tabBarController?.tabBar.isHidden = false
+    self.tabBarController?.tabBar.backgroundColor = .systemGray6
+    AF.request(Resource.baseURL + "/post/following",
+               method: .get,
+               parameters: nil,
+               encoding: JSONEncoding(),
+               headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"])
+    .validate()
+    .responseDecodable(of: Post.self) { response in
+      switch response.result {
+      case .success(let data):
+        self.postModel = data
+        self.tableView.reloadData()
+      case .failure(let error):
+        print("err \(error)")
+      }
+    }
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
@@ -45,11 +66,11 @@ class FollowingViewController: UIViewController {
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.equalToSuperview().offset(-20)
       $0.top.equalTo(followerButton.snp.bottom).offset(22)
+      $0.height.equalTo(1000)
       $0.bottom.equalToSuperview()
     }
   }
   @objc private func didTapFollowing() {
-    print("hhh")
     self.navigationController?.pushViewController(FollowingListViewController(), animated: false)
   }
   override func viewWillAppear(_ animated: Bool) {
@@ -59,12 +80,17 @@ class FollowingViewController: UIViewController {
 }
 extension FollowingViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return postModel?.posts?.count ?? 3
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: FollowPostCell.identifier) as? FollowPostCell else { return UITableViewCell() }
+    cell.postModel = self.postModel?.posts?[indexPath.row]
+    cell.imageview.loadImage(urlString: self.postModel?.posts?[indexPath.row].file_url?.components(separatedBy: ";").first ?? "https://heet-storage.s3.ap-northeast-2.amazonaws.com/1679710307826files.jpg")
     cell.setConstraint()
     cell.selectionStyle = .none
     return cell
+  }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 300
   }
 }

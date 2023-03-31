@@ -74,11 +74,6 @@ class SearchingAddressViewController: UIViewController {
       case .failure(let error):
         print("errr \(error)")
         self.dismiss(animated: true)
-//        print(error)
-//        let alert = UIAlertController(title: "이미 등록된 가게입니다!", message: "", preferredStyle: .alert)
-//        let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : nil)
-//        alert.addAction(defaultAction)
-//        self.present(alert, animated: false, completion: nil)
       }
     }
   }

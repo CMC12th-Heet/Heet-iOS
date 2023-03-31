@@ -10,12 +10,12 @@ import UIKit
 class CustomTabBarController: UITabBarController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.tabBarController?.tabBar.backgroundColor = .systemGray5
+    self.tabBarController?.tabBar.backgroundColor = .systemGray6
   }
   override func viewDidLoad() {
     view.backgroundColor = .white
     super.viewDidLoad()
-    self.tabBarController?.tabBar.backgroundColor = .systemGray5
+    self.tabBarController?.tabBar.backgroundColor = .systemGray6
     self.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(red: 255, green: 120, blue: 120, alpha: 1)], for: .selected)
     self.tabBar.tintColor = ColorManager.BackgroundColor
     var firstVC: UIViewController = UIViewController()
@@ -34,21 +34,5 @@ class CustomTabBarController: UITabBarController {
     thirdVC.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "LoginLogo"), style: .done, target: self, action: nil)
     thirdVC.navigationBar.topItem?.leftBarButtonItem?.tintColor = ColorManager.BackgroundColor
     self.setViewControllers([firstVC, secondVC, thirdVC], animated: true)
-//    naviView.addSubview(locationImage)
-//    naviView.addSubview(locationLabel)
-//    naviView.snp.makeConstraints {
-//      $0.width.equalTo(120)
-//      $0.height.equalTo(30)
-//    }
-//    locationImage.snp.makeConstraints {
-//      $0.left.equalTo(naviView.snp.left).offset(6)
-//      $0.centerY.equalTo(naviView.snp.centerY)
-//      $0.width.equalTo(17)
-//      $0.height.equalTo(17)
-//    }
-//    locationLabel.snp.makeConstraints {
-//      $0.left.equalTo(locationImage.snp.right).offset(5)
-//      $0.centerY.equalTo(naviView.snp.centerY)
-//    }
   }
 }

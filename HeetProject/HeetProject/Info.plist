@@ -4,6 +4,16 @@
 <dict>
 	<key>CFBundleIdentifier</key>
 	<string></string>
+	<key>CFBundleName</key>
+	<string></string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라 접근을 위해 권한이 필요합니다. 허용하시겠습니까?</string>
+	<key>NSLocationUsageDescription</key>
+	<string>위치 접근을 위해 권한이 필요합니다. 허용하시겠습니까?</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>위치 접근을 위해 권한이 필요합니다. 허용하시겠습니까?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>위치 접근을 위해 권한이 필요합니다. 허용하시겠습니까?</string>
 	<key>NSPhotoLibraryUsageDescription</key>

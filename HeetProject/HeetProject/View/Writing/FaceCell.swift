@@ -12,14 +12,14 @@ class FaceCell: UICollectionViewCell {
   var labeltext = ""
   var imagename = ""
   override var isSelected: Bool {
-      didSet {
-              if isSelected {
-                label.textColor = ColorManager.BackgroundColor
-                image.tintColor = ColorManager.BackgroundColor
-              } else {
-                label.textColor = .gray
-              }
-          }
+    didSet {
+      if isSelected {
+        label.textColor = ColorManager.BackgroundColor
+        image.tintColor = ColorManager.BackgroundColor
+      } else {
+        label.textColor = .black
+      }
+    }
   }
   let stackview: UIStackView = {
     let stackview = UIStackView()
@@ -43,7 +43,7 @@ class FaceCell: UICollectionViewCell {
   }()
   override func prepareForReuse() {
     super.prepareForReuse()
-//    label.textColor = .gray
+    //    label.textColor = .gray
   }
   func setConstraint() {
     self.contentView.addSubview(stackview)

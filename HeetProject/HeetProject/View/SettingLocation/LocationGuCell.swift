@@ -20,6 +20,7 @@ class LocationGuCell: UICollectionViewCell {
   }()
   override func prepareForReuse() {
     super.prepareForReuse()
+    self.label.text = ""
   }
   func setConstraint() {
     contentView.addSubview(label)

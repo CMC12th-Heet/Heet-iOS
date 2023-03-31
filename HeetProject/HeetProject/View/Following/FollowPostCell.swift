@@ -9,6 +9,7 @@ import UIKit
 
 class FollowPostCell: UITableViewCell {
   static let identifier = "FollowPostCell"
+  var postModel: LocalPost?
   private let totalview: UIView = {
     let view = UIView()
     view.layer.cornerRadius = 15
@@ -23,8 +24,8 @@ class FollowPostCell: UITableViewCell {
   }()
   private let nickname: UILabel = {
     let label = UILabel()
-    label.text = "heeoeoife"
-    label.textColor = ColorManager.grayColor
+    label.text = "heet_ios"
+    label.textColor = .gray
     return label
   }()
   private let location: UILabel = {
@@ -35,7 +36,13 @@ class FollowPostCell: UITableViewCell {
     return label
   }()
   let locationImage: UIImageView = {
-    let imageView = UIImageView(image: UIImage(named: "location"))
+    let imageView = UIImageView(image: UIImage(named: "Location"))
+    imageView.clipsToBounds = true
+    return imageView
+  }()
+  let imageview: UIImageView = {
+    let imageView = UIImageView(image: UIImage(named: "follow"))
+    imageView.clipsToBounds = true
     return imageView
   }()
   let scrapImage: UIImageView = {
@@ -74,17 +81,21 @@ class FollowPostCell: UITableViewCell {
     //        $0.bottom.equalToSuperview().offset(-10)
     //      }
   }
-  
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+    location.text = postModel?.store?.name
+    nickname.text = postModel?.user?.username
   }
   func setConstraint() {
     contentView.addSubview(totalview)
     totalview.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+      $0.top.equalToSuperview().offset(10)
+      $0.bottom.equalToSuperview().offset(-10)
+      $0.leading.equalToSuperview()
+      $0.trailing.equalToSuperview()
       $0.height.equalTo(281)
     }
-    [profileImage, location, nickname, locationImage]
+    [profileImage, location, nickname, locationImage, imageview]
       .forEach {
         totalview.addSubview($0)
       }
@@ -96,7 +107,7 @@ class FollowPostCell: UITableViewCell {
     }
     nickname.snp.makeConstraints {
       $0.centerY.equalTo(profileImage.snp.centerY)
-      $0.leading.equalTo(profileImage.snp.trailing)
+      $0.leading.equalTo(profileImage.snp.trailing).offset(10)
     }
     locationImage.snp.makeConstraints {
       $0.centerY.equalTo(profileImage.snp.centerY)
@@ -105,6 +116,12 @@ class FollowPostCell: UITableViewCell {
     location.snp.makeConstraints {
       $0.centerY.equalTo(profileImage.snp.centerY)
       $0.trailing.equalTo(locationImage.snp.leading).offset(-10)
+    }
+    imageview.snp.makeConstraints {
+      $0.leading.equalToSuperview()
+      $0.trailing.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.top.equalTo(profileImage.snp.bottom).offset(10)
     }
   }
 }

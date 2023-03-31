@@ -7,14 +7,20 @@
 
 import UIKit
 
+var cellText1: String?
+var cellText2: String?
+var cellText3: String?
+var cellText4: String?
+var cellText5: String?
 class ShareCell: UITableViewCell {
   static let identifier = "ShareCell"
+  var cellIndex = 0
   var buttonToggle = false
   let cellButton: UIButton = {
     let button = UIButton()
     button.layer.cornerRadius = 15
     button.setTitle("누구와 함께해요!", for: .normal)
-    button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+    button.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
     button.backgroundColor = .systemGray
     button.tintColor = .white
     button.addTarget(self, action: #selector(didTapButton), for: .touchDown)
@@ -28,17 +34,22 @@ class ShareCell: UITableViewCell {
   }()
   override func awakeFromNib() {
     super.awakeFromNib()
+    cellText.delegate = self
   }
-  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    cellText.text = ""
+  }
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
+    cellText.delegate = self
   }
   @objc private func didTapButton() {
     if buttonToggle == false {
       cellButton.backgroundColor = ColorManager.BackgroundColor
       buttonToggle = true
     } else {
-      cellButton.backgroundColor = .systemGray2
+      cellButton.backgroundColor = .systemGray
       buttonToggle = false
     }
   }
@@ -58,5 +69,20 @@ class ShareCell: UITableViewCell {
       $0.trailing.equalToSuperview().offset(-20)
       $0.centerY.equalToSuperview()
     }
+  }
+}
+extension ShareCell: UITextFieldDelegate {
+  func textFieldDidChangeSelection(_ textField: UITextField) {
+    switch cellIndex {
+    case 1: cellText1 = textField.text ?? ""
+      print("hhh")
+    case 2: cellText2 = textField.text ?? ""
+      print("aaa")
+    case 3: cellText3 = textField.text ?? ""
+    case 4: cellText4 = textField.text ?? ""
+    case 5: cellText5 = textField.text ?? ""
+    default: break
+    }
+    print("hhhh")
   }
 }

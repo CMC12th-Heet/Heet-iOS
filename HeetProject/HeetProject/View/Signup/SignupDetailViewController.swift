@@ -19,7 +19,7 @@ final class SignupDetailViewController: UIViewController {
   let emailtextLabel = {
     let label = UILabel()
     label.textColor = .systemGray4
-        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+    label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     return label
   }()
   private let passwordLabel = {

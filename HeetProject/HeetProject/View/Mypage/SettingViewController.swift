@@ -10,12 +10,14 @@ import UIKit
 class SettingViewController: UIViewController {
   private let tableview: UITableView = {
     let tableview = UITableView()
+    tableview.separatorStyle = .none
     return tableview
   }()
   private let stackview: UIStackView = {
     let stackview = UIStackView()
     stackview.axis = .vertical
     stackview.distribution = .equalSpacing
+    stackview.spacing = 20
     return stackview
   }()
   private let label1: UILabel = {
@@ -29,19 +31,25 @@ class SettingViewController: UIViewController {
     let label = UILabel()
     label.text = "HEET"
     label.font = .systemFont(ofSize: 11, weight: .bold)
-    label.textColor = ColorManager.grayColor
+    label.textColor = .gray
     return label
   }()
   private let label3: UILabel = {
     let label = UILabel()
     label.text = "문의 및 건의: makeideastrue1@gmail.com"
     label.font = .systemFont(ofSize: 11, weight: .bold)
-    label.textColor = ColorManager.grayColor
+    label.textColor = .gray
     return label
   }()
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.tabBarController?.tabBar.isHidden = true
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.navigationBar.topItem?.title = "설정"
+    self.navigationController?.navigationBar.backItem?.title = ""
+    self.navigationItem.backBarButtonItem?.tintColor = .gray
     tableview.delegate = self
     tableview.dataSource = self
     tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
@@ -53,15 +61,15 @@ class SettingViewController: UIViewController {
     stackview.addArrangedSubview(label2)
     stackview.addArrangedSubview(label3)
     tableview.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(100)
+      $0.top.equalToSuperview().offset(120)
       $0.leading.equalToSuperview().offset(5)
       $0.trailing.equalToSuperview().offset(-5)
-      $0.height.equalTo(130)
+      $0.height.equalTo(150)
     }
     stackview.snp.makeConstraints {
       $0.leading.equalToSuperview().offset(35)
       $0.trailing.equalToSuperview().offset(-35)
-      $0.bottom.equalToSuperview().offset(100)
+      $0.bottom.equalToSuperview().offset(-100)
       $0.height.equalTo(100)
     }
   }
@@ -85,8 +93,8 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.row {
     case 0: self.navigationController?.pushViewController(EditProfileViewController(), animated: false)
-    case 1: self.navigationController?.pushViewController(WritingViewController(), animated: false)
-    case 2: self.navigationController?.pushViewController(WritingViewController(), animated: false)
+    case 1: break
+    case 2: break
     default: break
     }
   }

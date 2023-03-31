@@ -23,8 +23,6 @@ class TagLabelCell: UICollectionViewCell {
     tagsField.tintColor = .gray
     tagsField.textColor = .black
     tagsField.fieldTextColor = .black
-    //    tagsField.selectedColor = .black
-    //    tagsField.selectedTextColor = .red
     tagsField.delimiter = ","
     tagsField.isDelimiterVisible = true
     tagsField.placeholderColor = .gray

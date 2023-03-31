@@ -43,7 +43,6 @@ class FaceCell: UICollectionViewCell {
   }()
   override func prepareForReuse() {
     super.prepareForReuse()
-    //    label.textColor = .gray
   }
   func setConstraint() {
     self.contentView.addSubview(stackview)

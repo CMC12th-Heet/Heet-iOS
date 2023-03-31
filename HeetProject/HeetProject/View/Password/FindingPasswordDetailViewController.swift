@@ -254,23 +254,5 @@ extension FindingPasswordDetailViewController: UITextFieldDelegate {
     }
   }
   @objc private func didTapNext() {
-//    let body: Parameters = [
-//      "password": rePasswordTextfield.text ?? "",
-//      "email": emailInput.text ?? ""
-//    ]
-//    AF.request("/user/change-password", method: .post, parameters: body, headers: ["Content-Type" : "application/json"])
-//      self.validateNumberButton.backgroundColor = .gray
-//      self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-//        self.timeSet -= 1
-//        var minute = self.timeSet / 60
-//        var seconds = self.timeSet % 60
-//        if self.timeSet > 0 {
-//          self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
-//        } else {
-//          self.timeLabel.text = "인증 시간 만료"
-//          timer.invalidate()
-//        }
-//      }
-//    self.present(LoginViewController(), animated: false)
   }
 }

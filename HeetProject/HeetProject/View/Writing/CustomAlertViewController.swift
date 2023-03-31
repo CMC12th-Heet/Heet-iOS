@@ -83,7 +83,6 @@ class CustomAlertViewController: UIViewController {
     if islogout == true {
       UserDefaults.standard.set(nil, forKey: "loginToken")
       self.navigationController?.pushViewController(LoginViewController(), animated: true)
-//      self.present(LoginViewController(), animated: true)
       islogout = false
     } else {
       self.delegate?.pop()

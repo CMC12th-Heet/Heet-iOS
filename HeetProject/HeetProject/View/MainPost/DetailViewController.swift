@@ -19,7 +19,6 @@ class DetailViewController: UIViewController {
   var imageNames: [String] = []
   let arraySection0: Array<String> = ["", "누구와 함께해요!", "이런 날 방문해요!", "이동 꿀팁", "주문 꿀팁", "기타 꿀팁"]
   let arraySection1: Array<String> = ["", "ex) 같이 간 사람/가고 싶은 사람","ex) 생일/기념일/기분 꿀꿀한 날","ex) 3번 출구 바로 앞 골목이 지름길!","ex) 시그니처 라떼는 필수입니다.", "ex) 화장실 문고리 잘 흔들려요!"]
-  
   private let totalScrollview: UIScrollView = {
     let scrollview = UIScrollView()
     return scrollview
@@ -247,16 +246,6 @@ class DetailViewController: UIViewController {
       $0.trailing.equalTo(totalview.snp.trailing)
       $0.height.equalTo(268)
     }
-    //        for (index, imageName) in imageNames.enumerated() {
-    //          let image = UIImage(named: imageName)
-    //          let imageView = UIImageView(image: image)
-    //          let positionX = self.view.frame.width * CGFloat(index)
-    //          imageView.frame = CGRect(x: positionX, y: 0, width: scrollview.bounds.width + 40, height: scrollview.bounds.height)
-    //          imageView.image = UIImage(named: imageNames[index])
-    //          imageView.contentMode = .scaleAspectFit
-    //          imageView.layer.cornerRadius = 20
-    //          scrollview.addSubview(imageView)
-    //        }
   }
   @objc private func didtapEdit() {
     let body: Parameters = [
@@ -363,7 +352,6 @@ class DetailViewController: UIViewController {
             button.backgroundColor = .white
             button.layer.cornerRadius = 10
             let positionX = self.view.frame.width * CGFloat(index) + 20
-            //            let positionX = Int(self.scrollview.bounds.width) * index + 20
             imageView.frame = CGRect(x: Int(positionX), y: 0, width: Int(self.view.bounds.width)-40, height: 268)
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
@@ -385,27 +373,11 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
-    //    collectionview.dataSource = self
-    //    collectionview.delegate = self
-    //    collectionview.register(TagLabelCell.self, forCellWithReuseIdentifier: TagLabelCell.identifier)
     tableview.register(ShareCell.self, forCellReuseIdentifier: ShareCell.identifier)
     tableview.register(CheckedCell.self, forCellReuseIdentifier: CheckedCell.identifier)
     tableview.delegate = self
     tableview.dataSource = self
     self.navigationController?.navigationBar.topItem?.title = "우리동네 기록"
-    //    let toolbar = UIToolbar()
-    //    view.addSubview(toolbar)
-    //    toolbar.translatesAutoresizingMaskIntoConstraints = false
-    //    toolbar.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 0).isActive = true
-    //    toolbar.bottomAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.bottomAnchor, multiplier: 0).isActive = true
-    //    toolbar.trailingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.trailingAnchor, multiplier: 0).isActive = true
-    //    let toolbarItem1 = UIBarButtonItem(image: UIImage(named: "toolChat"), style: .done, target: self, action: #selector(didTapChat))
-    //    let toolbarItem2 = UIBarButtonItem(image: UIImage(named: "toolScrap"), style: .done, target: self, action: nil)
-    //    let toolbarItem3 = UIBarButtonItem(image: UIImage(named: "toolShare"), style: .done, target: self, action: nil)
-    //    toolbarItem1.tintColor = .gray
-    //    toolbarItem2.tintColor = .gray
-    //    toolbarItem3.tintColor = .gray
-    //    toolbar.setItems([toolbarItem1, toolbarItem2, toolbarItem3], animated: true)
   }
   @objc func didTapChat() {
     let vc = ChattingViewController()
@@ -503,17 +475,3 @@ extension DetailViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
     }
   }
 }
-//extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return 3
-//  }
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagLabelCell.identifier, for: indexPath) as? TagLabelCell else { return UICollectionViewCell() }
-//    cell.setConstraint()
-//    cell.tagsField.text = "#동대문역3번출구"
-//    return cell
-//  }
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    return CGSize(width: 100, height: collectionView.bounds.height)
-//  }
-//}

@@ -109,10 +109,6 @@ class MainLocationViewController: UIViewController {
       $0.width.equalTo(84)
       $0.height.equalTo(30)
     }
-    //    LocationViewController.local3.snp.makeConstraints {
-    //      $0.width.equalTo(84)
-    //      $0.height.equalTo(30)
-    //    }
     mylabel.snp.makeConstraints {
       $0.leading.equalToSuperview().offset(28)
       $0.top.equalToSuperview().offset(120)

@@ -94,35 +94,25 @@ class ChattingViewController: UIViewController {
     }
   }
   func initNotification() {
-    // 키보드 올라올 때
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(noti:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-    // 키보드 내려갈 때
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(noti:)), name: UIResponder.keyboardWillHideNotification, object: nil)
   }
   @objc func keyboardWillShow(noti: Notification) {
     let notiInfo = noti.userInfo!
-    // 키보드 높이를 가져옴
     let keyboardFrame = notiInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
     let height = keyboardFrame.size.height - self.view.safeAreaInsets.bottom
-    //      sendViewBottomMargin.constant = height
     print("hihi")
     bottomview.snp.makeConstraints {
       $0.bottomMargin.equalTo(height)
     }
-    // 애니메이션 효과를 키보드 애니메이션 시간과 동일하게
     let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
     }
   }
-  
-  // 키보드 내려가기
   @objc func keyboardWillHide(noti: Notification) {
     let notiInfo = noti.userInfo!
     let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
-    //      self.sendViewBottomMargin.constant = 0
-    
-    // 애니메이션 효과를 키보드 애니메이션 시간과 동일하게
     UIView.animate(withDuration: animationDuration) {
       self.view.layoutIfNeeded()
     }

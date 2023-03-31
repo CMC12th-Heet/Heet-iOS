@@ -8,10 +8,8 @@
 import UIKit
 import SnapKit
 import ExpyTableView
-//import WSTagsField
 import Alamofire
 import CoreGraphics
-
 
 var isComplete = 0
 class WritingViewController: UIViewController, sendDelegate {
@@ -149,8 +147,6 @@ class WritingViewController: UIViewController, sendDelegate {
   private let tableview: ExpyTableView = {
     let tableview = ExpyTableView()
     tableview.separatorStyle = .none
-    //    tableview.estimatedRowHeight = 50
-    //    tableview.rowHeight = UITableView.automaticDimension
     return tableview
   }()
   private let tagText: UITextField = {
@@ -197,10 +193,6 @@ class WritingViewController: UIViewController, sendDelegate {
     self.navigationController?.navigationBar.topItem?.backBarButtonItem?.title = ""
     let button = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(didTapComplete))
     self.navigationController?.navigationBar.topItem?.rightBarButtonItem = button
-    //    collectionview.dataSource = self
-    //    collectionview.delegate = self
-    //    collectionview.register(TagLabelCell.self, forCellWithReuseIdentifier: TagLabelCell.identifier)
-    //    tableview.rowHeight = UITableView.automaticDimension
     self.navigationController?.navigationBar.topItem?.backAction = UIAction(handler: { action in
       if isComplete == 0 {
         let vc = CustomAlertViewController()
@@ -319,7 +311,6 @@ class WritingViewController: UIViewController, sendDelegate {
       }
     }
   }
-  
 }
 extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource {
   func tableView(_ tableView: ExpyTableView, expyState state: ExpyState, changeForSection section: Int) {
@@ -363,13 +354,6 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
         $0.height.equalTo(28)
       }
     }
-    //    else if section == 2 {
-    //      cell.contentView.addSubview(collectionview)
-    //      collectionview.snp.makeConstraints {
-    //        $0.edges.equalToSuperview()
-    //        $0.height.equalTo(50)
-    //      }
-    //    }
     return cell
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -415,19 +399,6 @@ extension WritingViewController: ExpyTableViewDelegate, ExpyTableViewDataSource 
     }
   }
 }
-//extension WritingViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return 10
-//  }
-//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagLabelCell.identifier, for: indexPath) as? TagLabelCell else { return UICollectionViewCell() }
-//    cell.setConstraint()
-//    return cell
-//  }
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    return CGSize(width: 100, height: collectionView.bounds.height)
-//  }
-//}
 extension WritingViewController: UITextFieldDelegate {
   func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
   }

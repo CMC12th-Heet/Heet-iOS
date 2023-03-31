@@ -88,9 +88,6 @@ class FindingPasswordViewController: UIViewController {
       validateNumberButton.setTitleColor(.white, for: .normal)
       validateNumberButton.setTitle("인증 완료", for: .normal)
       validateNumber.isUserInteractionEnabled = false
-      // 인증 되었습니다 알럿
-      print("인증됨ㅁㅁㅁ")
-      //      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .done, target: self, action: #selector(didTapNext))
       if isValidated == true {
         timer?.invalidate()
       }

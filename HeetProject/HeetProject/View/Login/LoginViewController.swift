@@ -170,7 +170,6 @@ final class LoginViewController: UIViewController {
       if UserDefaults.standard.string(forKey: "loginToken") != nil {
         print("yes")
         self.passwordAlertLabel.isHidden = true
-//        "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
         self.navigationController?.pushViewController(CustomTabBarController(), animated: false)
       } else {
         print("no")

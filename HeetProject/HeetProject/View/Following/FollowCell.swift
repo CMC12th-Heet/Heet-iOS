@@ -78,9 +78,5 @@ class FollowCell: UITableViewCell {
       $0.centerY.equalToSuperview()
       $0.leading.equalTo(profileImage.snp.trailing).offset(10)
     }
-//    followingButton.snp.makeConstraints {
-//      $0.trailing.equalToSuperview().offset(-20)
-//      $0.centerY.equalToSuperview()
-//    }
   }
 }

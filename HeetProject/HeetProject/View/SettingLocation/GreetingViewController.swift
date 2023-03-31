@@ -84,7 +84,6 @@ class GreetingViewController: UIViewController {
       let vc = UINavigationController(rootViewController: LoginViewController())
       vc.modalPresentationStyle = .overFullScreen
       self.present(vc, animated: true)
-      //      self.navigationController?.pushViewController(CustomTabBarController(), animated: false)
     }
   }
   private func configureUI() {

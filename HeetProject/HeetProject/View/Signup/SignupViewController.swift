@@ -111,7 +111,6 @@ class SignupViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.navigationBar.isHidden = false
-    //    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .done, target: self, action: #selector(didTapNext))
     view.backgroundColor = .white
     emailTextField.delegate = self
     configureUI()

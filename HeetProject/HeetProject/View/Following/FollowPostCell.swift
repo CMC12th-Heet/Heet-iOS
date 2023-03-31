@@ -49,37 +49,8 @@ class FollowPostCell: UITableViewCell {
     let imageView = UIImageView(image: UIImage(named: "scrap"))
     return imageView
   }()
-  //  lazy private var scrollview: UIScrollView = {
-  //    let scrollview = UIScrollView()
-  //    scrollview.frame = UIScreen.main.bounds
-  //    scrollview.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(imageNames.count), height: UIScreen.main.bounds.height)
-  //    scrollview.delegate = self
-  //    scrollview.alwaysBounceVertical = false
-  //    scrollview.showsHorizontalScrollIndicator = false
-  //    scrollview.showsVerticalScrollIndicator = false
-  //    scrollview.isScrollEnabled = true
-  //    scrollview.isPagingEnabled = true
-  //    scrollview.bounces = false
-  //    return scrollview
-  //  }()
   override func awakeFromNib() {
     super.awakeFromNib()
-    //      let imageView = UIImageView(image: imageName)
-    //      let button = UIButton(frame: CGRect(x: 0, y: 0, width: 47, height: 17))
-    //      button.setTitle("\(index+1)/\(imageNames.count)", for: .normal)
-    //      button.backgroundColor = .white
-    //      button.layer.cornerRadius = 10
-    //      let positionX = Int(self.scrollview.bounds.width) * index + 20
-    //      imageView.frame = CGRect(x: positionX, y: 0, width: Int(view.bounds.width)-40, height: 268)
-    //      imageView.contentMode = .scaleAspectFill
-    //      imageView.clipsToBounds = true
-    //      imageView.layer.cornerRadius = 10
-    //      scrollview.addSubview(imageView)
-    //      imageView.addSubview(button)
-    //      button.snp.makeConstraints {
-    //        $0.trailing.equalToSuperview().offset(-10)
-    //        $0.bottom.equalToSuperview().offset(-10)
-    //      }
   }
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)

@@ -268,17 +268,13 @@ class EditProfileViewController: UIViewController, sendDelegate {
   @objc private func didTapLogout() {
     let alertVC = CustomAlertViewController()
     alertVC.alertLabel.text = "로그아웃 하시겠습니까?"
-    //    alertVC.delegate = self
     alertVC.islogout = true
     self.present(alertVC, animated: false)
-//    self.navigationController?.pushViewController(alertVC, animated: false)
   }
   @objc private func didTapExit() {
     let alertVC = CustomAlertViewController()
     alertVC.alertLabel.text = "회원 탈퇴 하시겠습니까?"
     alertVC.isRemove = true
     self.present(alertVC, animated: false)
-//    self.navigationController?.pushViewController(alertVC, animated: false)
-    //    alertVC.delegate = self
   }
 }

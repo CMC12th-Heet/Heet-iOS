@@ -126,11 +126,6 @@ class SearchingAddressViewController: UIViewController {
     let searchBar = UISearchBar()
     searchBar.placeholder = "위치 검색"
     searchBar.layer.cornerRadius = 80
-    //왼쪽 서치아이콘 이미지 세팅하기
-    //    searchBar.setImage(UIImage(named: "icSearchNonW"), for: UISearchBar.Icon.search, state: .normal)
-    //    //오른쪽 x버튼 이미지 세팅하기
-    //    searchBar.setImage(UIImage(named: "icCancel"), for: .clear, state: .normal)
-    //    //네비게이션에 서치바 넣기
     searchBar.delegate = self
     self.view.addSubview(searchBar)
     searchBar.snp.makeConstraints {

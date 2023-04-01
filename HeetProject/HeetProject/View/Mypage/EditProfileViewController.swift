@@ -10,12 +10,19 @@ import Alamofire
 
 class EditProfileViewController: UIViewController, sendDelegate {
   func pop() {
-    NetworkService.shared.deleteUser { result in
-      switch result {
-      case .success(let response):
-        print(response)
+    NetworkService.shared.deleteUser { response in
+      switch response {
+      case .success(let data):
         self.present(LoginViewController(), animated: true)
-      default: print(result)
+      case .requestError(let message):
+        print("requestErr", message)
+      case .pathError:
+        print("pathErr")
+      case .serverError:
+        print("serverErr")
+      case .networkFail:
+        print("networkFail")
+      default: break
       }
     }
   }

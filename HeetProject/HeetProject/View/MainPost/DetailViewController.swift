@@ -278,97 +278,99 @@ class DetailViewController: UIViewController {
     super.viewWillAppear(animated)
     self.navigationController?.navigationBar.isHidden = false
     self.navigationController?.navigationBar.backItem?.title = ""
-    NetworkService().getMainPost(url: "/post/\(self.id)", method: .get, params: nil, headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], model: LocalPost.self) { response in
-      switch response.result {
-      case .success(let response):
-        self.model.append(response.together_with ?? "")
-        self.model.append(response.moving_tip ?? "")
-        self.model.append(response.perfect_day ?? "")
-        self.model.append(response.ordering_tip ?? "")
-        self.model.append(response.other_tips ?? "")
-        print("m \(response)")
-        print("mmm \(self.model)")
-        self.titleText.text = response.title
-        self.subTitleText.text = response.mini_title
-        self.contentText.text = response.content
-        self.addressButton.setTitle(response.store?.name, for: .normal)
-        self.imageNames = response.urlList ?? [""]
-        self.satisfy = response.satisfaction
-        self.ismyPost = response.isMyPost
-        self.username.text = response.user?.username
-        DispatchQueue.main.async {
-          let edit = UIAction(title: "수정하기", attributes: .keepsMenuPresented, handler: {_ in
-            self.titleText.isUserInteractionEnabled = true
-            self.subTitleText.isUserInteractionEnabled = true
-            self.contentText.isUserInteractionEnabled = true
-            let button = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.didtapEdit))
-            self.navigationItem.rightBarButtonItem = button
-          })
-          let delete = UIAction(title: "삭제하기", attributes: .keepsMenuPresented, handler: { _ in
-            AF.request(Resource.baseURL + "/post/\(self.id)", method: .delete,
-                       parameters: nil,
-                       encoding: URLEncoding.queryString,
-                       headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"])
-            .validate()
-            .response { response in
-              print("delete")
-              self.navigationController?.popViewController(animated: false)
+    NetworkService.shared.requestData(
+      url: "/post/\(self.id)",
+      method: .get, params: nil, headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
+      parameters: URLEncoding.queryString,
+      model: LocalPost.self) { response in
+        switch response {
+        case .success(let t):
+          if let t = t as? LocalPost {
+            let response = t
+            self.model.append(response.together_with ?? "")
+            self.model.append(response.moving_tip ?? "")
+            self.model.append(response.perfect_day ?? "")
+            self.model.append(response.ordering_tip ?? "")
+            self.model.append(response.other_tips ?? "")
+            self.titleText.text = response.title
+            self.subTitleText.text = response.mini_title
+            self.contentText.text = response.content
+            self.addressButton.setTitle(response.store?.name, for: .normal)
+            self.imageNames = response.urlList ?? [""]
+            self.satisfy = response.satisfaction
+            self.ismyPost = response.isMyPost
+            self.username.text = response.user?.username
+            DispatchQueue.main.async {
+              let edit = UIAction(title: "수정하기", attributes: .keepsMenuPresented, handler: {_ in
+                self.titleText.isUserInteractionEnabled = true
+                self.subTitleText.isUserInteractionEnabled = true
+                self.contentText.isUserInteractionEnabled = true
+                let button = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.didtapEdit))
+                self.navigationItem.rightBarButtonItem = button
+              })
+              let delete = UIAction(title: "삭제하기", attributes: .keepsMenuPresented, handler: { _ in
+                AF.request(Resource.baseURL + "/post/\(self.id)", method: .delete,
+                           parameters: nil,
+                           encoding: URLEncoding.queryString,
+                           headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"])
+                .validate()
+                .response { response in
+                  self.navigationController?.popViewController(animated: false)
+                }
+              })
+              var buttonMenu = UIMenu(title: "", children: [edit, delete])
+              var button = UIBarButtonItem(image: UIImage(named: "more"), style: .done, target: self, action: nil)
+              let report = UIAction(title: "신고하기", attributes: .keepsMenuPresented, handler: { _ in self.navigationController?.pushViewController(ReportingViewController(), animated: false) })
+              if self.ismyPost! == 1 {
+              } else {
+                buttonMenu = UIMenu(title: "", children: [report])
+              }
+              button.menu = buttonMenu
+              self.navigationItem.rightBarButtonItem = button
+              let toolbar = UIToolbar()
+              self.setConstraint()
+              self.view.addSubview(toolbar)
+              toolbar.translatesAutoresizingMaskIntoConstraints = false
+              toolbar.leadingAnchor.constraint(equalToSystemSpacingAfter: self.view.safeAreaLayoutGuide.leadingAnchor, multiplier: 0).isActive = true
+              toolbar.bottomAnchor.constraint(equalToSystemSpacingBelow: self.view.safeAreaLayoutGuide.bottomAnchor, multiplier: 0).isActive = true
+              toolbar.trailingAnchor.constraint(equalToSystemSpacingAfter: self.view.safeAreaLayoutGuide.trailingAnchor, multiplier: 0).isActive = true
+              let flexibleItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+              let toolbarItem1 = UIBarButtonItem(image: UIImage(named: "toolChat"), style: .done, target: self, action: #selector(self.didTapChat))
+              let toolbarItem2 = UIBarButtonItem(image: UIImage(named: "toolScrap"), style: .done, target: self, action: nil)
+              let toolbarItem3 = UIBarButtonItem(image: UIImage(named: "toolShare"), style: .done, target: self, action: nil)
+              toolbarItem1.tintColor = .gray
+              toolbarItem2.tintColor = .gray
+              toolbarItem3.tintColor = .gray
+              toolbar.setItems([toolbarItem1, toolbarItem2, flexibleItem, toolbarItem3], animated: true)
+              self.tabBarController?.tabBar.isHidden = true
+              
+              for (index, imageName) in self.imageNames.enumerated() {
+                let imageView = UIImageView()
+                imageView.loadImage(urlString: imageName)
+                let button = UIButton()
+                button.setTitle("\(index+1)/\(self.imageNames.count)", for: .normal)
+                button.setTitleColor(.black, for: .normal)
+                button.titleLabel?.font = .systemFont(ofSize: 10, weight: .bold)
+                button.backgroundColor = .white
+                button.layer.cornerRadius = 10
+                let positionX = self.view.frame.width * CGFloat(index) + 20
+                imageView.frame = CGRect(x: Int(positionX), y: 0, width: Int(self.view.bounds.width)-40, height: 268)
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
+                imageView.layer.cornerRadius = 10
+                self.scrollview.addSubview(imageView)
+                imageView.addSubview(button)
+                button.snp.makeConstraints {
+                  $0.trailing.equalToSuperview().offset(-10)
+                  $0.bottom.equalToSuperview().offset(-10)
+                  $0.width.equalTo(50)
+                }
+              }
             }
-          })
-          var buttonMenu = UIMenu(title: "", children: [edit, delete])
-          var button = UIBarButtonItem(image: UIImage(named: "more"), style: .done, target: self, action: nil)
-          let report = UIAction(title: "신고하기", attributes: .keepsMenuPresented, handler: { _ in self.navigationController?.pushViewController(ReportingViewController(), animated: false) })
-          print("mmm \(self.ismyPost!)")
-          if self.ismyPost! == 1 {
-          } else {
-            buttonMenu = UIMenu(title: "", children: [report])
           }
-          button.menu = buttonMenu
-          self.navigationItem.rightBarButtonItem = button
-          let toolbar = UIToolbar()
-          self.setConstraint()
-          self.view.addSubview(toolbar)
-          toolbar.translatesAutoresizingMaskIntoConstraints = false
-          toolbar.leadingAnchor.constraint(equalToSystemSpacingAfter: self.view.safeAreaLayoutGuide.leadingAnchor, multiplier: 0).isActive = true
-          toolbar.bottomAnchor.constraint(equalToSystemSpacingBelow: self.view.safeAreaLayoutGuide.bottomAnchor, multiplier: 0).isActive = true
-          toolbar.trailingAnchor.constraint(equalToSystemSpacingAfter: self.view.safeAreaLayoutGuide.trailingAnchor, multiplier: 0).isActive = true
-          let flexibleItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-          let toolbarItem1 = UIBarButtonItem(image: UIImage(named: "toolChat"), style: .done, target: self, action: #selector(self.didTapChat))
-          let toolbarItem2 = UIBarButtonItem(image: UIImage(named: "toolScrap"), style: .done, target: self, action: nil)
-          let toolbarItem3 = UIBarButtonItem(image: UIImage(named: "toolShare"), style: .done, target: self, action: nil)
-          toolbarItem1.tintColor = .gray
-          toolbarItem2.tintColor = .gray
-          toolbarItem3.tintColor = .gray
-          toolbar.setItems([toolbarItem1, toolbarItem2, flexibleItem, toolbarItem3], animated: true)
-          self.tabBarController?.tabBar.isHidden = true
-          
-          for (index, imageName) in self.imageNames.enumerated() {
-            let imageView = UIImageView()
-            imageView.loadImage(urlString: imageName)
-            let button = UIButton()
-            button.setTitle("\(index+1)/\(self.imageNames.count)", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.titleLabel?.font = .systemFont(ofSize: 10, weight: .bold)
-            button.backgroundColor = .white
-            button.layer.cornerRadius = 10
-            let positionX = self.view.frame.width * CGFloat(index) + 20
-            imageView.frame = CGRect(x: Int(positionX), y: 0, width: Int(self.view.bounds.width)-40, height: 268)
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = 10
-            self.scrollview.addSubview(imageView)
-            imageView.addSubview(button)
-            button.snp.makeConstraints {
-              $0.trailing.equalToSuperview().offset(-10)
-              $0.bottom.equalToSuperview().offset(-10)
-              $0.width.equalTo(50)
-            }
-          }
+        default : break
         }
-      case .failure(let error):
-        print("error: \(error)")
       }
-    }
   }
   override func viewDidLoad() {
     super.viewDidLoad()

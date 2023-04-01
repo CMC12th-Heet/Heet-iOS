@@ -43,26 +43,42 @@ class FindingPasswordViewController: UIViewController {
     let body: Parameters = [
       "email": emailInput.text ?? ""
     ]
-    NetworkService().varifyEmail(url: "/user/find-password", method: .post, params: body, headers: ["Content-Type" : "application/json"], model: SignupModel.self) {
-      self.validateNumberButton.backgroundColor = .gray
-      self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-        self.timeSet -= 1
-        var minute = self.timeSet / 60
-        var seconds = self.timeSet % 60
-        if self.timeSet > 0 {
-          self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
-        } else {
-          self.timeLabel.text = "인증 시간 만료"
-          timer.invalidate()
+    NetworkService.shared.requestData(url: "/user/find-password", method: .post, params: body, headers: ["Content-Type" : "application/json"], parameters: JSONEncoding(), model: SignupModel.self) { (response) in
+      switch(response) {
+      case .success(let data):
+        if let data = data as? SignupModel {
+          emailCode = String(data.code ?? "")
+          self.validateNumberButton.backgroundColor = .gray
+          self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.timeSet -= 1
+            var minute = self.timeSet / 60
+            var seconds = self.timeSet % 60
+            if self.timeSet > 0 {
+              self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
+            } else {
+              self.timeLabel.text = "인증 시간 만료"
+              timer.invalidate()
+            }
+          }
+          self.validateNumberButton.backgroundColor = .gray
+          self.validateNumberButton.layer.borderColor = UIColor.gray.cgColor
+          self.validateNumberButton.layer.borderWidth = 1
+          self.validateNumberButton.setTitleColor(.white, for: .normal)
+          self.validateNumberButton.isUserInteractionEnabled = false
+          self.requestButton.isHidden = false
+          self.requestLabel.isHidden = false
         }
+      case .requestError(_):
+        break
+      case .pathError:
+        break
+      case .serverError:
+        break
+      case .decodeError:
+        break
+      case .networkFail:
+        break
       }
-      self.validateNumberButton.backgroundColor = .gray
-      self.validateNumberButton.layer.borderColor = UIColor.gray.cgColor
-      self.validateNumberButton.layer.borderWidth = 1
-      self.validateNumberButton.setTitleColor(.white, for: .normal)
-      self.validateNumberButton.isUserInteractionEnabled = false
-      self.requestButton.isHidden = false
-      self.requestLabel.isHidden = false
     }
   }
   private let validateNumber = {
@@ -146,25 +162,34 @@ class FindingPasswordViewController: UIViewController {
     let body = [
       "email": emailText
     ]
-    NetworkService().varifyEmail(url: "/user/email-verify", method: .post, params: body, headers: ["Content-Type" : "application/json"], model: SignupModel.self) {
-      self.timer?.invalidate()
-      self.timeSet = 180
-      let alert = UIAlertController(title: "재전송되었습니다!", message: "", preferredStyle: .alert)
-      let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : nil)
-      alert.addAction(defaultAction)
-      self.present(alert, animated: false, completion: nil)
-      self.validateNumberButton.setTitle("인증 요청", for: .normal)
-      self.validateNumber.isUserInteractionEnabled = true
-      self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-        self.timeSet -= 1
-        var minute = self.timeSet / 60
-        var seconds = self.timeSet % 60
-        if self.timeSet > 0 {
-          self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
-        } else {
-          self.timeLabel.text = "인증 시간 만료"
-          timer.invalidate()
+    NetworkService.shared.requestData(url: "/user/email-verify", method: .post, params: body, headers: ["Content-Type" : "application/json"], parameters: JSONEncoding(), model: SignupModel.self) {
+      response in
+      switch response {
+      case .success(let data):
+        if let data = data as? SignupModel {
+          emailCode = String(data.code ?? "")
+          self.timer?.invalidate()
+          self.timeSet = 180
+          let alert = UIAlertController(title: "재전송되었습니다!", message: "", preferredStyle: .alert)
+          let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : nil)
+          alert.addAction(defaultAction)
+          self.present(alert, animated: false, completion: nil)
+          self.validateNumberButton.setTitle("인증 요청", for: .normal)
+          self.validateNumber.isUserInteractionEnabled = true
+          self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.timeSet -= 1
+            var minute = self.timeSet / 60
+            var seconds = self.timeSet % 60
+            if self.timeSet > 0 {
+              self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
+            } else {
+              self.timeLabel.text = "인증 시간 만료"
+              timer.invalidate()
+            }
+          }
         }
+      default:
+        break
       }
     }
   }

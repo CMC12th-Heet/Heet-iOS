@@ -182,15 +182,24 @@ extension SearchingAddressViewController: UITableViewDelegate, UITableViewDataSo
     let parameters: Parameters = [
       "keyword": searchText
     ]
-    NetworkService().getStore(url: "/store",
-                              method: .get,
-                              params: parameters,
-                              headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                              model: [StoreModel].self) {
-      self.tableview.isHidden = false
-      self.label.isHidden = true
-      self.resultLabel.isHidden = false
-      self.tableview.reloadData()
-    }
+    NetworkService.shared.requestData(
+      url: "/store",
+      method: .get,
+      params: parameters,
+      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
+      parameters: URLEncoding.queryString,
+      model: [StoreModel].self) { response in
+        switch response {
+        case .success(let t):
+          if let t = t as? [StoreModel] {
+            storeList = t
+            self.tableview.isHidden = false
+            self.label.isHidden = true
+            self.resultLabel.isHidden = false
+            self.tableview.reloadData()
+          }
+        default: break
+        }
+      }
   }
 }

@@ -79,17 +79,19 @@ class ChattingViewController: UIViewController {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    NetworkService().getMainPost(url: "/comment/\(self.chatId!)",
-                                 method: .get,
-                                 params: nil,
-                                 headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                 model: [ChattingModel].self) { response in
-      switch response.result {
-      case .success(let response):
-        self.chatModel = response
-        self.tableview.reloadData()
-      case .failure(let error):
-        print("error \(error)")
+    NetworkService.shared.requestData(url: "/comment/\(self.chatId!)",
+                                      method: .get,
+                                      params: nil,
+                                      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
+                                      parameters: URLEncoding.queryString,
+                                      model: [ChattingModel].self) { response in
+      switch response {
+      case .success(let data):
+        if let data = data as? [ChattingModel] {
+          self.chatModel = data
+          self.tableview.reloadData()
+        }
+      default: break
       }
     }
   }
@@ -126,35 +128,32 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     return chatModel?.count ?? 3
   }
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-        if (UserDefaults.standard.string(forKey: "email")! == chatModel?[indexPath.row].user?.email) {
+    if editingStyle == .delete {
+      if (UserDefaults.standard.string(forKey: "email")! == chatModel?[indexPath.row].user?.email) {
         print("de \(self.chatModel?[indexPath.row].comment_id ?? 0)")
-          AF.request(Resource.baseURL + "/comment/\(self.chatModel?[indexPath.row].comment_id ?? 0)", method: .delete,
-                     parameters: nil,
-                     encoding: URLEncoding.queryString,
-                     headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"])
-          .validate()
-          .response { response in
-            print("delete")
-            print("re \(response)")
-            NetworkService().getMainPost(url: "/comment/\(self.chatId!)",
-                                         method: .get,
-                                         params: nil,
-                                         headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                         model: [ChattingModel].self) { response in
-              switch response.result {
-              case .success(let response):
-                self.chatModel = response
+        AF.request(Resource.baseURL + "/comment/\(self.chatModel?[indexPath.row].comment_id ?? 0)", method: .delete,
+                   parameters: nil,
+                   encoding: URLEncoding.queryString,
+                   headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"])
+        .validate()
+        .response { response in
+          NetworkService.shared.requestData(url: "/comment/\(self.chatId!)",
+                                            method: .get,
+                                            params: nil,
+                                            headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], parameters: URLEncoding.queryString,
+                                            model: [ChattingModel].self) { response in
+            switch response {
+            case .success(let data):
+              if let data = data as? [ChattingModel] {
+                self.chatModel = data
                 self.tableview.reloadData()
-              case .failure(let error):
-                print("error \(error)")
               }
+            default: break
             }
-//            self.tableview.reloadData()
           }
         }
       }
-    print("hhhh")
+    }
   }
   func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     print("scccc")
@@ -188,22 +187,22 @@ extension ChattingViewController: UITextViewDelegate {
       .response(completionHandler: { response in
         switch response.result {
         case .success(_):
-          NetworkService().getMainPost(url: "/comment/\(self.chatId!)",
-                                       method: .get,
-                                       params: nil,
-                                       headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                       model: [ChattingModel].self) { response in
-            switch response.result {
-            case .success(let response):
-              self.chatModel = response
-              self.tableview.reloadData()
-            case .failure(let error):
-              print("error \(error)")
+          NetworkService.shared.requestData(url: "/comment/\(self.chatId!)",
+                                            method: .get,
+                                            params: nil,
+                                            headers: ["Authorization": "Bearer a\(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], parameters: URLEncoding.queryString,
+                                            model: [ChattingModel].self) { response in
+            switch response {
+            case .success(let data):
+              if let data = data as? [ChattingModel] {
+                self.chatModel = data
+                self.tableview.reloadData()
+              }
+            default: break
             }
           }
         case .failure(let error):
-          print("err \(error)")
-        default: break
+          print(error.errorDescription)
         }
       })
       return false

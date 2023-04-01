@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import BSImagePicker
+import Alamofire
 
 class MyPageViewController: UIViewController {
   private let profileImage: UIImageView = {
@@ -107,22 +108,30 @@ class MyPageViewController: UIViewController {
     self.tabBarController?.tabBar.isHidden = false
     self.tabBarController?.tabBar.backgroundColor = .systemGray6
     print("   dfsdf >>  \(UserDefaults.standard.string(forKey: "loginToken"))")
-    NetworkService().getMypage(
+    NetworkService.shared.requestData(
       url: "/user/my-page",
       method: .get,
       params: nil,
-      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken")!)"],
-      model: MypageModel.self) {
-        UserDefaults.standard.set(mypageModel?.is_verify, forKey: "isVerify")
-        UserDefaults.standard.set(mypageModel?.username, forKey: "username")
-        self.locationLabel.text = "\(LocationViewController.city) \(mypageModel?.town ?? "")"
-        self.profileName.text = mypageModel?.username
-        self.profileLine.text = mypageModel?.status
-        self.infoLabel.text = "게시글 \(mypageModel?.post?.count ?? 0) | 팔로잉 2 | 팔로잉 2"
-        if ((mypageModel?.is_verify) != nil) {
-          self.markImage.isHidden = false
+      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken")!)"], parameters: JSONEncoding(),
+      model: MypageModel.self) { response in
+        switch response {
+        case .success(let t):
+          if let t = t as? MypageModel {
+            let a = UserDefaults.standard.string(forKey: "loginToken")
+            mypageModel = t
+            UserDefaults.standard.set(mypageModel?.is_verify, forKey: "isVerify")
+            UserDefaults.standard.set(mypageModel?.username, forKey: "username")
+            self.locationLabel.text = "\(LocationViewController.city) \(mypageModel?.town ?? "")"
+            self.profileName.text = mypageModel?.username
+            self.profileLine.text = mypageModel?.status
+            self.infoLabel.text = "게시글 \(mypageModel?.post?.count ?? 0) | 팔로잉 2 | 팔로잉 2"
+            if ((mypageModel?.is_verify) != nil) {
+              self.markImage.isHidden = false
+            }
+            self.collectionview.reloadData()
+          }
+        default: break
         }
-        self.collectionview.reloadData()
       }
   }
   override func viewDidLoad() {
@@ -209,10 +218,8 @@ class MyPageViewController: UIViewController {
     self.navigationController?.pushViewController(ScrapViewController(), animated: false)
   }
   @objc private func didTapButton() {
-    //    UserDefaults.standard.set(false, forKey: "isVerify")
     if !UserDefaults.standard.bool(forKey: "isVerify") {
       let vc = MainValidateViewController()
-      //      isComplete = 0
       self.navigationController?.pushViewController(vc, animated: false)
     } else {
       let imagePicker = ImagePickerController()

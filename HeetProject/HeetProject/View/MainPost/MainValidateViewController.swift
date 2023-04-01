@@ -13,7 +13,6 @@ import Alamofire
 
 class MainValidateViewController: UIViewController, CLLocationManagerDelegate {
   var locationManager = CLLocationManager()
-  //위도와 경도
   var latitude: Double?
   var longitude: Double?
   let floatingButton: UIButton = {
@@ -87,45 +86,40 @@ class MainValidateViewController: UIViewController, CLLocationManagerDelegate {
       print("경도 : \(location.coordinate.longitude)")
     }
   }
-  // 위치 가져오기 실패
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("error")
   }
   @objc private func didTapValidate() {
     setLocationManager()
-    //    locationManager = CLLocationManager()
-    //    locationManager.delegate = self
-    //    //포그라운드 상태에서 위치 추적 권한 요청
-    //    locationManager.requestWhenInUseAuthorization()
-    //    //배터리에 맞게 권장되는 최적의 정확도
-    //    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    //    locationManager.startUpdatingLocation()
-    //    let coor = locationManager.location?.coordinate
-    //    latitude = coor?.latitude
-    //    longitude = coor?.longitude
-    //    print("lala \(latitude)")
-    //    print("dfdf \(longitude)")
     floatingButton.isUserInteractionEnabled = true
     let param: Parameters = [
       "x": latitude,
       "y": longitude
     ]
-    NetworkService().getMainPost(url: "/post/verify", method: .post, params: param, headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], model: LocationModel.self) { response in
-      switch response.result {
-      case .success(let response):
-        print("sc \(response.message)")
-        if response.message == "fail" {
-          self.label2.isHidden = false
-        } else {
-          self.label2.text = "인증되었습니다."
-          let alert = UIAlertController(title: "인증되었습니다!", message: "", preferredStyle: .alert)
-          let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : {_ in
-          })
-          alert.addAction(defaultAction)
-          self.present(alert, animated: false, completion: nil)
+    NetworkService.shared.requestData(
+      url: "/post/verify",
+      method: .post,
+      params: param,
+      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
+      parameters: URLEncoding.queryString,
+      model: LocationModel.self
+    ) { response in
+      switch response {
+      case .success(let data):
+        if let data = data as? LocationModel {
+          print("sc \(data.message)")
+          if data.message == "fail" {
+            self.label2.isHidden = false
+          } else {
+            self.label2.text = "인증되었습니다."
+            let alert = UIAlertController(title: "인증되었습니다!", message: "", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : {_ in
+            })
+            alert.addAction(defaultAction)
+            self.present(alert, animated: false, completion: nil)
+          }
         }
-      case .failure(let error):
-        print(error)
+      default:
         self.label2.isHidden = false
       }
       UserDefaults.standard.set(true, forKey: "isVerify")

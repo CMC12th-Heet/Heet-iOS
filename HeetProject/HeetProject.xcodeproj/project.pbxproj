@@ -209,6 +209,7 @@
 				AEDD0B4F29A9E47100CB4A83 /* Model */,
 				AEDD0B9829B9C38000CB4A83 /* Network */,
 				AEDD0BB929BF7A3400CB4A83 /* Extension */,
+				AEBC8EAA29D719EE0084FBC2 /* Utils */,
 				AE5413002996844B0002876A /* Assets.xcassets */,
 				AE5413022996844B0002876A /* LaunchScreen.storyboard */,
 				AE5413052996844B0002876A /* Info.plist */,
@@ -236,6 +237,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AEBC8EAA29D719EE0084FBC2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AE54130B29969EFA0002876A /* ColorManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		AEDD0B4F29A9E47100CB4A83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +269,6 @@
 			children = (
 				AE5412F7299684490002876A /* AppDelegate.swift */,
 				AE5412F9299684490002876A /* SceneDelegate.swift */,
-				AE54130B29969EFA0002876A /* ColorManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import ExpyTableView
+import Alamofire
 
 class LocationViewController: UIViewController {
   static var temp = [""]
@@ -86,7 +87,25 @@ class LocationViewController: UIViewController {
       "town": "\(LocationViewController.city) \(LocationViewController.temp[1])"
     ]
     if LocationViewController.temp.count > 0 {
-      NetworkService().registerUser(url: "/user", method: .post, params: body, headers: ["Content-Type" : "application/json"]) {
+      NetworkService.shared.requestData(url: "/user", method: .post, params: body, headers: ["Content-Type" : "application/json"], parameters: JSONEncoding(), model: SignupUser.self) { response in
+        switch response {
+        case .success(let data):
+          if let data = data as? SignupUser {
+            print("\(data.username)")
+          }
+        case .requestError(let message):
+          print("requestErr", message)
+        case .pathError:
+          print("pathErr")
+        case .pathError:
+          print("serverError")
+        case .decodeError:
+          print("decodeError")
+        case .networkFail:
+          print("networkFail")
+        case .serverError:
+          print("serverError")
+        }
         signTown = "\(LocationViewController.city) \(LocationViewController.temp[1])"
         GreetingViewController.selectedLoc = LocationViewController.temp
         GreetingViewController.LocationImage.isHidden = false

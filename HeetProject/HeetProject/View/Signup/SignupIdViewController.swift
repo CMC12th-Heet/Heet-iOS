@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import SafariServices
+import Alamofire
 
 var signemail = ""
 var signPassword = ""
@@ -308,26 +309,32 @@ class SignupIdViewController: UIViewController {
     let body = [
       "username": self.username
     ]
-    NetworkService().varifyId(url: "/user/find-duplicate", method: .post, params: body, headers: ["Content-Type" : "application/json"], model: CheckingIdModel.self) {
-      self.doubleCheckButton.setTitleColor(.white, for: .normal)
-      self.doubleCheckButton.backgroundColor = ColorManager.BackgroundColor
-      self.possibleLabel.isHidden = false
-      print("ss \(self.username)")
-      print("du \(isDuplicated)")
-      if isDuplicated == false {
-        self.repasswordLineView.backgroundColor = .systemGray5
-        self.doubleCheckButton.isHidden = true
-        self.stackView5.isHidden = false
-        self.countCheck1.isHidden = false
-        self.countImage1.isHidden = false
-        self.possibleCheck.isHidden = false
-        self.signupButton.isUserInteractionEnabled = true
-        print("ussusuer \(isDuplicated)")
-      } else {
-        self.possibleLabel.text = "*이미 사용 중인 아이디입니다."
-        //        self.doubleCheckButton.isUserInteractionEnabled = true
-        self.possibleCheck.isHidden = true
-        self.signupButton.isUserInteractionEnabled = false
+    NetworkService.shared.requestData(url: "/user/find-duplicate", method: .post, params: body, headers: ["Content-Type" : "application/json"], parameters: JSONEncoding(), model: CheckingIdModel.self) { response in
+      switch response {
+      case .success(let data):
+        if let data = data as? CheckingIdModel {
+          isDuplicated = data.isDuplicated
+          self.doubleCheckButton.setTitleColor(.white, for: .normal)
+          self.doubleCheckButton.backgroundColor = ColorManager.BackgroundColor
+          self.possibleLabel.isHidden = false
+          print("ss \(self.username)")
+          print("du \(isDuplicated)")
+          if isDuplicated == false {
+            self.repasswordLineView.backgroundColor = .systemGray5
+            self.doubleCheckButton.isHidden = true
+            self.stackView5.isHidden = false
+            self.countCheck1.isHidden = false
+            self.countImage1.isHidden = false
+            self.possibleCheck.isHidden = false
+            self.signupButton.isUserInteractionEnabled = true
+            print("ussusuer \(isDuplicated)")
+          } else {
+            self.possibleLabel.text = "*이미 사용 중인 아이디입니다."
+            self.possibleCheck.isHidden = true
+            self.signupButton.isUserInteractionEnabled = false
+          }
+        }
+      default: break
       }
     }
   }
@@ -337,8 +344,6 @@ class SignupIdViewController: UIViewController {
     }
     signemail = self.emailtextLabel.text ?? ""
     signUsername = self.username
-    print("sd \(self.username)")
-    print("sig \(signUsername)")
     signPassword = self.sendPassword
     let vc = GreetingViewController()
     vc.username = self.username

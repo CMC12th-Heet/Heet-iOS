@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import BSImagePicker
 import Photos
+import Alamofire
 
 class MainViewController: UIViewController {
   var isRecent = true
@@ -109,21 +110,21 @@ class MainViewController: UIViewController {
     recent.setTitleColor(ColorManager.BackgroundColor, for: .normal)
     best.setTitleColor(.gray, for: .normal)
     isRecent = true
-    NetworkService().getMainPost(url: "/post",
-                                 method: .get,
-                                 params: [
-                                  "isHot": 1,
-                                  "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
-                                 ],
-                                 headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                 model: Post.self) { response in
-      switch response.result {
-      case .success(let response):
-        localPost = response
-        print("locaaal \(response)")
-        self.tableView.reloadData()
-      case .failure(let error):
-        print(error)
+    NetworkService.shared.requestData(url: "/post",
+                                      method: .get,
+                                      params: [
+                                        "isHot": 1,
+                                        "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
+                                      ],
+                                      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], parameters: URLEncoding.queryString,
+                                      model: Post.self) { response in
+      switch response {
+      case .success(let t):
+        if let t = t as? Post {
+          localPost = t
+          self.tableView.reloadData()
+        }
+      default : break
       }
     }
   }
@@ -131,23 +132,24 @@ class MainViewController: UIViewController {
     best.setTitleColor(ColorManager.BackgroundColor, for: .normal)
     recent.setTitleColor(.gray, for: .normal)
     isRecent = false
-    NetworkService().getMainPost(url: "/post",
-                                 method: .get,
-                                 params: [
-                                  "isNew": 1,
-                                  "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
-                                 ],
-                                 headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                 model: Post.self) { response in
-      switch response.result {
-      case .success(let response):
-        localPost = response
-        print("locaaal \(response)")
-        self.tableView.reloadData()
-      case .failure(let error):
-        print(error)
+    NetworkService.shared.requestData(
+      url: "/post",
+      method: .get,
+      params: [
+        "isNew": 1,
+        "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
+      ],
+      headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], parameters: URLEncoding.queryString,
+      model: Post.self) { response in
+        switch response {
+        case .success(let t):
+          if let t = t as? Post {
+            localPost = t
+            self.tableView.reloadData()
+          }
+        default : break
+        }
       }
-    }
   }
   @objc private func didTapLocation() {
     self.navigationController?.pushViewController(MainLocationViewController(), animated: true)
@@ -183,8 +185,8 @@ class MainViewController: UIViewController {
         }
         let vc = WritingViewController()
         vc.imageNames = imageArr
-          self.navigationController?.pushViewController(vc, animated: false)
-        }
+        self.navigationController?.pushViewController(vc, animated: false)
+      }
       )
     }
   }
@@ -194,39 +196,40 @@ class MainViewController: UIViewController {
     self.tabBarController?.tabBar.isHidden = false
     leftbutton.setTitle("\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)", for: .normal)
     if isRecent {
-      NetworkService().getMainPost(url: "/post",
-                                   method: .get,
-                                   params: [
-                                    "isHot": 1,
-                                    "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
-                                   ],
-                                   headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                   model: Post.self) { response in
-        switch response.result {
-        case .success(let response):
-          localPost = response
-          print("locaaal \(response)")
-          self.tableView.reloadData()
-        case .failure(let error):
-          print(error)
+      NetworkService.shared.requestData(url: "/post",
+                                        method: .get,
+                                        params: [
+                                          "isHot": 1,
+                                          "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
+                                        ],
+                                        headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], parameters: URLEncoding.queryString,
+                                        model: Post.self) { response in
+        switch response {
+        case .success(let t):
+          if let t = t as? Post {
+            localPost = t
+            self.tableView.reloadData()
+          }
+        default : break
         }
+        
       }
     } else {
-      NetworkService().getMainPost(url: "/post",
-                                   method: .get,
-                                   params: [
-                                    "isNew": 1,
-                                    "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
-                                   ],
-                                   headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"],
-                                   model: Post.self) { response in
-        switch response.result {
-        case .success(let response):
-          localPost = response
-          print("locaaal \(response)")
-          self.tableView.reloadData()
-        case .failure(let error):
-          print(error)
+      NetworkService.shared.requestData(url: "/post",
+                                        method: .get,
+                                        params: [
+                                          "isNew": 1,
+                                          "city": "\(MainLocationViewController.selectedCity) \(MainLocationViewController.selectedGu)"
+                                        ],
+                                        headers: ["Authorization": "Bearer \(UserDefaults.standard.string(forKey: "loginToken") ?? "")"], parameters: URLEncoding.queryString,
+                                        model: Post.self) { response in
+        switch response {
+        case .success(let t):
+          if let t = t as? Post {
+            localPost = t
+            self.tableView.reloadData()
+          }
+        default : break
         }
       }
     }

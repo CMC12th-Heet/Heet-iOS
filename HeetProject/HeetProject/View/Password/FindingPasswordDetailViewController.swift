@@ -245,7 +245,6 @@ extension FindingPasswordDetailViewController: UITextFieldDelegate {
       reCheck.isHidden = false
       reImage.isHidden = false
       reImage.image = UIImage(named: "checkedImage")
-      //      password = rePasswordTextfield.text
     } else {
       reCheck.isHidden = true
       reImage.isHidden = true

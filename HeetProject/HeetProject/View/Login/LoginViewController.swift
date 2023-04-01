@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 final class LoginViewController: UIViewController {
   var email: String?
@@ -164,16 +165,26 @@ final class LoginViewController: UIViewController {
       "email": email,
       "password": password
     ]
-    print("eee \(email)   \(password)")
     self.passwordAlertLabel.isHidden = false
-    NetworkService().login(url: "/user/login", method: .post, params: body, headers: ["Content-Type" : "application/json"], model: LoginModel.self) {
-      if UserDefaults.standard.string(forKey: "loginToken") != nil {
-        print("yes")
-        self.passwordAlertLabel.isHidden = true
-        self.navigationController?.pushViewController(CustomTabBarController(), animated: false)
-      } else {
-        print("no")
-        self.passwordAlertLabel.isHidden = true
+    NetworkService.shared.requestData(url: "/user/login", method: .post, params: body, headers: ["Content-Type" : "application/json"], parameters: JSONEncoding(), model: LoginModel.self) { response in
+      switch response {
+      case .success(let data):
+        if let data = data as? LoginModel {
+          MainLocationViewController.selectedCity = String(Array(data.town ?? "")[0...1])
+          MainLocationViewController.selectedGu = String(Array(data.town ?? "")[3...])
+          MainLocationViewController.myTownLabel.text = data.town
+          print("meme \(data.message)")
+          UserDefaults.standard.set(data.token, forKey: "loginToken")
+          if UserDefaults.standard.string(forKey: "loginToken") != nil {
+            print("yes")
+            self.passwordAlertLabel.isHidden = true
+            self.navigationController?.pushViewController(CustomTabBarController(), animated: false)
+          } else {
+            print("no")
+            self.passwordAlertLabel.isHidden = true
+          }
+        }
+      default: break
       }
     }
   }

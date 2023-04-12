@@ -110,10 +110,13 @@ class SignupViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationController?.navigationBar.isHidden = false
     view.backgroundColor = .white
     emailTextField.delegate = self
     configureUI()
+    configureNavigation()
+  }
+  private func configureNavigation() {
+    self.navigationController?.navigationBar.isHidden = false
     self.navigationItem.title = "회원 가입"
     self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
     self.navigationController?.navigationBar.topItem?.backBarButtonItem?.tintColor = .black
@@ -177,8 +180,37 @@ class SignupViewController: UIViewController {
       $0.centerY.equalTo(validateNumber.snp.centerY)
     }
   }
-  
   @objc private func didTapValidate() {
+    requestNumber()
+  }
+  @objc private func didTapValidateNumber() {
+    if emailCode == validateNumber.text ?? "" {
+      validateNumberButton.backgroundColor = ColorManager.BackgroundColor
+      validateNumberButton.setTitleColor(.white, for: .normal)
+      validateNumberButton.setTitle("인증 완료", for: .normal)
+      validateNumber.isUserInteractionEnabled = false
+      if isValidated == true {
+        timer?.invalidate()
+      }
+      let alert = UIAlertController(title: "인증되었습니다!", message: "", preferredStyle: .alert)
+      let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : {_ in
+        let vc = SignupDetailViewController()
+        vc.emailtextLabel.text = self.emailText
+        self.navigationController?.pushViewController(vc, animated: false)
+      })
+      alert.addAction(defaultAction)
+      self.present(alert, animated: false, completion: nil)
+    } else {
+      let alert = UIAlertController(title: "인증번호를 다시 확인해주세요.", message: "", preferredStyle: .alert)
+      let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : nil)
+      alert.addAction(defaultAction)
+      present(alert, animated: false, completion: nil)
+    }
+  }
+  @objc private func didTapReValidate() {
+    requestReNumber()
+  }
+  private func requestNumber() {
     let body: Parameters = [
       "email": emailTextField.text
     ]
@@ -207,35 +239,10 @@ class SignupViewController: UIViewController {
           self.requestButton.isHidden = false
         }
       default: break
-        }
       }
-  }
-  @objc private func didTapValidateNumber() {
-    if emailCode == validateNumber.text ?? "" {
-      validateNumberButton.backgroundColor = ColorManager.BackgroundColor
-      validateNumberButton.setTitleColor(.white, for: .normal)
-      validateNumberButton.setTitle("인증 완료", for: .normal)
-      validateNumber.isUserInteractionEnabled = false
-      if isValidated == true {
-        timer?.invalidate()
-      }
-      let alert = UIAlertController(title: "인증되었습니다!", message: "", preferredStyle: .alert)
-      let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : {_ in
-        let vc = SignupDetailViewController()
-        vc.emailtextLabel.text = self.emailText
-        self.navigationController?.pushViewController(vc, animated: false)
-      })
-      alert.addAction(defaultAction)
-      self.present(alert, animated: false, completion: nil)
-    } else {
-      print("안됨")
-      let alert = UIAlertController(title: "인증번호를 다시 확인해주세요.", message: "", preferredStyle: .alert)
-      let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler : nil)
-      alert.addAction(defaultAction)
-      present(alert, animated: false, completion: nil)
     }
   }
-  @objc private func didTapReValidate() {
+  private func requestReNumber() {
     let body = [
       "email": emailText
     ]

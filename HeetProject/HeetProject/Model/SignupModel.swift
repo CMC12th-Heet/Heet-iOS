@@ -8,11 +8,21 @@
 import Foundation
 
 struct SignupModel: Decodable {
+  var status: Int
+  var data: CodeData
+}
+struct CodeData: Decodable {
   var code: String
 }
+
 struct CheckingIdModel: Decodable {
+  var status: Int
+  var data: DuplicatedData
+}
+struct DuplicatedData: Decodable {
   var isDuplicated: Bool
 }
+
 struct SignupUser: Decodable {
   var username: String
 }

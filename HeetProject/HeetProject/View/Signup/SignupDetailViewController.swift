@@ -134,7 +134,6 @@ final class SignupDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.navigationBar.topItem?.backBarButtonItem = nil
-    //    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .done, target: self, action: #selector(didTapNext))
     self.view.backgroundColor = .white
     passwordTextfield.delegate = self
     rePasswordTextfield.delegate = self
@@ -264,6 +263,7 @@ extension SignupDetailViewController: UITextFieldDelegate {
       reImage.isHidden = false
       reImage.image = UIImage(named: "checkedImage")
       password = rePasswordTextfield.text
+      self.navigationItem.rightBarButtonItem = nil
     } else {
       reCheck.isHidden = true
       reImage.isHidden = true

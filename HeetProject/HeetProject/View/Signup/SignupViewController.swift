@@ -217,27 +217,32 @@ class SignupViewController: UIViewController {
     NetworkService.shared.requestData(url: "/user/email-verify", method: .post, params: body, headers: ["Content-Type" : "application/json"], parameters: JSONEncoding(), model: SignupModel.self) { response in
       switch response {
       case .success(let data):
-        if let data = data as? SignupModel {
-          emailCode = String(data.code)
-          self.emailLabel.isHidden = false
-          self.emailImage.isHidden = false
-          self.validateButton.isUserInteractionEnabled = false
-          self.validateNumberButton.isUserInteractionEnabled = true
-          self.validateButton.backgroundColor = .gray
-          self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.timeSet -= 1
-            var minute = self.timeSet / 60
-            var seconds = self.timeSet % 60
-            if self.timeSet > 0 {
-              self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
-            } else {
-              self.timeLabel.text = "인증 시간 만료"
-              timer.invalidate()
+        let alert = UIAlertController(title: "", message: "인증번호가 전송되었습니다!", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Yes!", style: .destructive, handler: { _ in
+          if let data = data as? SignupModel {
+            emailCode = String(data.data.code)
+            self.emailLabel.isHidden = false
+            self.emailImage.isHidden = false
+            self.validateButton.isUserInteractionEnabled = false
+            self.validateNumberButton.isUserInteractionEnabled = true
+            self.validateButton.backgroundColor = .gray
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+              self.timeSet -= 1
+              var minute = self.timeSet / 60
+              var seconds = self.timeSet % 60
+              if self.timeSet > 0 {
+                self.timeLabel.text = String(format: "%02d", minute) + ":" + String(format: "%02d", seconds)
+              } else {
+                print("dat \(response)")
+                self.timeLabel.text = "인증 시간 만료"
+                timer.invalidate()
+              }
             }
+            self.requestLabel.isHidden = false
+            self.requestButton.isHidden = false
           }
-          self.requestLabel.isHidden = false
-          self.requestButton.isHidden = false
-        }
+        }))
+        self.present(alert, animated: true)
       default: break
       }
     }
@@ -251,7 +256,7 @@ class SignupViewController: UIViewController {
       switch response {
       case .success(let data):
         if let data = data as? SignupModel {
-          emailCode = String(data.code)
+          emailCode = String(data.data.code)
           self.timer?.invalidate()
           self.timeSet = 180
           let alert = UIAlertController(title: "재전송되었습니다!", message: "", preferredStyle: .alert)

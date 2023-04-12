@@ -8,15 +8,19 @@
 import UIKit
 
 extension UIImage {
-  func resizeWithWidth(width: CGFloat) -> UIImage? {
-    let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: 268)))
-    imageView.contentMode = .scaleAspectFit
-    imageView.image = self
-    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
-    guard let context = UIGraphicsGetCurrentContext() else { return nil }
-    imageView.layer.render(in: context)
-    guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-    UIGraphicsEndImageContext()
-    return result
-  }
+    func resize(newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / self.size.width
+        let newHeight = self.size.height * scale
+
+        let size = CGSize(width: newWidth, height: newHeight)
+        let render = UIGraphicsImageRenderer(size: size)
+        let renderImage = render.image { context in
+            self.draw(in: CGRect(origin: .zero, size: size))
+        }
+        
+        print("화면 배율: \(UIScreen.main.scale)")// 배수
+        print("origin: \(self), resize: \(renderImage)")
+//        printDataSize(renderImage)
+        return renderImage
+    }
 }

@@ -313,13 +313,11 @@ class SignupIdViewController: UIViewController {
       switch response {
       case .success(let data):
         if let data = data as? CheckingIdModel {
-          isDuplicated = data.isDuplicated
+          isDuplicated = data.data.isDuplicated
           self.doubleCheckButton.setTitleColor(.white, for: .normal)
           self.doubleCheckButton.backgroundColor = ColorManager.BackgroundColor
           self.possibleLabel.isHidden = false
-          print("ss \(self.username)")
-          print("du \(isDuplicated)")
-          if isDuplicated == false {
+          if isDuplicated == true {
             self.repasswordLineView.backgroundColor = .systemGray5
             self.doubleCheckButton.isHidden = true
             self.stackView5.isHidden = false
@@ -327,7 +325,6 @@ class SignupIdViewController: UIViewController {
             self.countImage1.isHidden = false
             self.possibleCheck.isHidden = false
             self.signupButton.isUserInteractionEnabled = true
-            print("ussusuer \(isDuplicated)")
           } else {
             self.possibleLabel.text = "*이미 사용 중인 아이디입니다."
             self.possibleCheck.isHidden = true

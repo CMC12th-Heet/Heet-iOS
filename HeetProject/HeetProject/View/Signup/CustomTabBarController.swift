@@ -8,16 +8,22 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
+  override func viewDidLoad() {
+    view.backgroundColor = .white
+    super.viewDidLoad()
+    configureTabBar()
+    configureVC()
+  }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.tabBarController?.tabBar.backgroundColor = .systemGray6
   }
-  override func viewDidLoad() {
-    view.backgroundColor = .white
-    super.viewDidLoad()
+  private func configureTabBar() {
     self.tabBarController?.tabBar.backgroundColor = .systemGray6
     self.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(red: 255, green: 120, blue: 120, alpha: 1)], for: .selected)
     self.tabBar.tintColor = ColorManager.BackgroundColor
+  }
+  private func configureVC() {
     var firstVC: UIViewController = UIViewController()
     if (UserDefaults.standard.string(forKey: "userLocation") == nil) {
       firstVC = MainViewController()
